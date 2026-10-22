@@ -1,0 +1,169 @@
+/* fire.css - Ember kamp atesi katmanlari. js/fire.js ile birlikte yuklenir.
+   Katmanlar #campfire icinde, pointer-events:none, icerigin ARKASINDA (z-index:0).
+   Icerik (body > *) :where() ile sifir ozgullukle position:relative; z-index:1 alir. */
+
+#campfire {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  --fx: 160px;
+  --fy: 26px;
+  --sc: 1;
+  --warm: 0;
+  --vigo: 0;
+  --gs: 0.1;
+}
+
+/* anasayfa (opak, ust uste binen bolumler): ates bolumlerin ONUNDE, header(50)/noktalar(40)/modallerin altinda */
+html.journey #campfire { z-index: 30; }
+html.journey .site-footer { z-index: 35; }   /* footer metni alevin ustunde */
+html.journey #campfire .fire-warm { display: none; }   /* opak bolumde ısınma yikamasi metni boyar */
+html.journey #campfire .fire-glow {
+  background: radial-gradient(circle closest-side, rgba(255, 150, 90, .55) 0%, rgba(255, 125, 80, .12) 30%, rgba(255, 125, 80, 0) 100%);
+}
+:root[data-theme="light"].journey #campfire .fire-glow {
+  background: radial-gradient(circle closest-side, rgba(232, 140, 90, .30) 0%, rgba(232, 140, 90, .08) 35%, rgba(232, 140, 90, 0) 100%);
+}
+html.journey #campfire .fire-vig { display: none; }
+@media (max-width: 700px) { html.journey #campfire { opacity: .5; } }
+
+/* icerik ateşin ustunde kalsin (zero-specificity, sayfa css'i ezer) */
+:where(body > *:not(#campfire):not(script):not(style):not(.cc-dot):not(.cc-halo):not(.cc-trail):not(.cc-ripple)) {
+  position: relative;
+  z-index: 1;
+}
+
+#campfire > * { position: absolute; pointer-events: none; }
+
+/* 1 - zemin isinmasi */
+/* tam ekran gradyan katmanlari 1/4 boyutta cizilip scale(4) ile buyutulur: ~16x az doku bellegi, gradyan yumusak oldugundan gorunum ayni */
+#campfire .fire-warm {
+  left: 0; top: 0; width: 25%; height: 25%;
+  transform: scale(4); transform-origin: 0 0;
+  background: linear-gradient(to top right, var(--bg-warm, #33271F) 0%, transparent 70%);
+  opacity: 0;
+  will-change: opacity;
+}
+:root[data-theme="light"] #campfire .fire-warm {
+  background: linear-gradient(to top right, var(--bg-warm, #F5E0CF) 0%, transparent 70%);
+}
+
+/* 2 - isik havuzu */
+#campfire .fire-glow {
+  left: var(--fx);
+  bottom: var(--fy);
+  width: 512px;                 /* 2200px yerine 512px doku; JS scale(gr*4.3) ile buyutur */
+  height: 512px;
+  border-radius: 50%;
+  background: radial-gradient(circle closest-side,
+    rgba(255, 150, 90, .85) 0%, rgba(255, 125, 80, .30) 30%, rgba(255, 125, 80, 0) 100%);
+  transform: translate(-50%, 50%) scale(.43);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+:root[data-theme="light"] #campfire .fire-glow {
+  background: radial-gradient(circle closest-side,
+    rgba(232, 140, 90, .45) 0%, rgba(232, 140, 90, .16) 35%, rgba(232, 140, 90, 0) 100%);
+}
+
+/* 4 - alev + kivilcim canvas'i */
+#campfire .fire-canvas {
+  left: 0;
+  bottom: 0;
+  animation: fire-ignite .8s ease-out both;
+}
+@keyframes fire-ignite { from { opacity: 0; } to { opacity: 1; } }
+
+/* 5 - odun ve taslar (statik SVG) */
+#campfire .fire-logs {
+  left: calc(var(--fx) - 160px * var(--sc));
+  bottom: 0;
+  width: calc(320px * var(--sc));
+  height: calc(70px * var(--sc));
+  overflow: visible;
+  contain: layout style;
+}
+/* gradyanli odunlar; kenarlari ates buyudukce kor gibi isir (--fire: 0..1, fire.js yazar) */
+#campfire .fire-logs .fl-w1 { fill: url(#fl-wood); }
+#campfire .fire-logs .fl-w2 { fill: url(#fl-wood2); }
+#campfire .fire-logs .fl-st { fill: url(#fl-stone); }
+#campfire .fire-logs .fl-ring { fill: url(#fl-ring); opacity: calc(.25 + var(--fire, 0) * .75); }
+#campfire .fire-logs .fl-rim {
+  fill: #ff9a5c;
+  opacity: calc(.05 + var(--fire, 0) * .6);
+}
+:root[data-theme="light"] #campfire .fire-logs .fl-w1 { fill: #4a3228; }
+:root[data-theme="light"] #campfire .fire-logs .fl-w2 { fill: #5a3d30; }
+:root[data-theme="light"] #campfire .fire-logs .fl-st { fill: #8a8f86; }
+:root[data-theme="light"] #campfire .fire-logs .fl-rim { fill: #c0603a; opacity: calc(.1 + var(--fire, 0) * .5); }
+#campfire .fire-logs .fl-log { fill: var(--fire-log, #1E1416); }
+#campfire .fire-logs .fl-log2 { fill: var(--fire-log-2, #2B1D1C); }
+#campfire .fire-logs .fl-stone { fill: var(--fire-stone, #3a342d); }
+:root[data-theme="light"] #campfire .fire-logs .fl-log { fill: var(--fire-log, #4A3228); }
+:root[data-theme="light"] #campfire .fire-logs .fl-log2 { fill: var(--fire-log-2, #5A3D30); }
+:root[data-theme="light"] #campfire .fire-logs .fl-stone { fill: var(--fire-stone, #8A8F86); }
+
+/* 8 - kenar vinyeti */
+#campfire .fire-vig {
+  left: 0; top: 0; width: 25%; height: 25%;
+  transform: scale(4); transform-origin: 0 0;
+  opacity: 0;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(255, 160, 110, .06) 0%, transparent 45%),
+    radial-gradient(ellipse at 0% 100%, transparent 40%, rgba(10, 6, 3, .34) 100%);
+  will-change: opacity;
+}
+:root[data-theme="light"] #campfire .fire-vig {
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(200, 150, 120, .05) 0%, transparent 45%),
+    radial-gradient(ellipse at 0% 100%, transparent 40%, rgba(214, 150, 110, .10) 100%);
+}
+
+/* tek seferlik flas */
+#campfire .fire-flash {
+  inset: 0;
+  background: var(--fire-white, #FFF6DC);
+  opacity: 0;
+  transition: opacity .6s ease-out;
+}
+#campfire .fire-flash.on { opacity: .04; transition-duration: .3s; }
+
+/* reduced-motion: statik kareler */
+#campfire .fire-static { display: none; }
+#campfire.fire-reduced .fire-static {
+  display: block;
+  left: calc(var(--fx) - 160px * var(--sc));
+  bottom: 0;
+  width: calc(320px * var(--sc));
+  height: calc(420px * var(--sc));
+}
+#campfire .fire-static svg {
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 100%; height: 100%;
+  opacity: 0;
+  transition: opacity .4s ease;
+  overflow: visible;
+}
+#campfire .fire-static svg.on { opacity: 1; }
+#campfire .fire-static .fs-flame { fill: var(--fire-core, #FF7A2F); }
+#campfire .fire-static .fs-deep { fill: var(--fire-deep, #D13F12); }
+#campfire .fire-static .fs-mid { fill: var(--fire-mid, #FFB347); }
+#campfire .fire-static .fs-hot { fill: var(--fire-hot, #FFE2A0); }
+#campfire .fire-static .fs-ember { fill: var(--fire-deep, #D13F12); }
+:root[data-theme="light"] #campfire .fire-static .fs-deep { stroke: rgba(138, 42, 14, .25); stroke-width: 1.5; }
+#campfire.fire-reduced .fire-canvas,
+#campfire.fire-reduced .fire-logs { display: none; }
+#campfire.fire-reduced .fire-glow,
+#campfire.fire-reduced .fire-warm,
+#campfire.fire-reduced .fire-vig { transition: opacity .3s ease, transform .3s ease; }
+#campfire.fire-reduced .fire-static .fl-log { fill: var(--fire-log, #1E1416); }
+:root[data-theme="light"] #campfire.fire-reduced .fire-static .fl-log { fill: var(--fire-log, #4A3228); }
+#campfire.fire-reduced .fire-static .fl-log2 { fill: var(--fire-log-2, #2B1D1C); }
+:root[data-theme="light"] #campfire.fire-reduced .fire-static .fl-log2 { fill: var(--fire-log-2, #5A3D30); }
+:root[data-theme="light"] #campfire.fire-reduced .fire-static .fl-stone { fill: var(--fire-stone, #8A8F86); }
+#campfire.fire-reduced .fire-static .fl-stone { fill: var(--fire-stone, #3a342d); }
+
+@media print { #campfire { display: none !important; } }

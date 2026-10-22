@@ -1,0 +1,109 @@
+/* journey.css - anasayfa "sayfa ustune sayfa" (stacking cards): 6 opak bolum, her biri sticky.
+   Yeni bolum altindan kayarak oncekinin USTUNE acilir; onceki geride kuculur/kararir (JS: scroll'a bagli transform + dim opacity).
+   Yalnizca transform/opacity; will-change sadece gecis sirasinda (.is-under). Ates (#campfire) html.journey'de bolumlerin onunde. */
+
+/* ---------- Bolum tonlari (her sayfa hafif farkli yumusak mesh) ---------- */
+:root { --jx-a: rgba(104, 98, 62, 0.26); --jx-b: rgba(126, 92, 80, 0.20); --jx-c: rgba(138, 96, 62, 0.22); --jdim: 14, 10, 7; --jshadow: rgba(8, 5, 3, 0.55); }
+:root[data-theme="light"] { --jx-a: rgba(176, 200, 172, 0.42); --jx-b: rgba(176, 202, 216, 0.40); --jx-c: rgba(240, 206, 184, 0.38); --jdim: 40, 30, 20; --jshadow: rgba(60, 70, 60, 0.30); }
+
+/* ---------- Bolum iskeleti ---------- */
+.jsec {
+  position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+  padding-block: 0 clamp(48px, 7vw, 96px); scroll-margin-top: 0;
+  background:
+    radial-gradient(60% 50% at 8% 0%, var(--jx-a), transparent 70%),
+    radial-gradient(55% 45% at 100% 10%, var(--jx-b), transparent 70%),
+    radial-gradient(70% 55% at 55% 105%, var(--jx-c), transparent 70%),
+    var(--bg);
+}
+.jsec:nth-of-type(even) {
+  background:
+    radial-gradient(60% 50% at 94% 0%, var(--jx-c), transparent 70%),
+    radial-gradient(55% 45% at 0% 12%, var(--jx-b), transparent 70%),
+    radial-gradient(70% 55% at 40% 105%, var(--jx-a), transparent 70%),
+    var(--bg);
+}
+.jsec:nth-of-type(3n) {
+  background:
+    radial-gradient(60% 50% at 50% 0%, var(--jx-b), transparent 70%),
+    radial-gradient(55% 45% at 0% 90%, var(--jx-c), transparent 70%),
+    radial-gradient(70% 55% at 100% 100%, var(--jx-a), transparent 70%),
+    var(--bg);
+}
+.jsec + .jsec { border-radius: var(--r-xl) var(--r-xl) 0 0; box-shadow: 0 -22px 60px -18px var(--jshadow); }
+.jsec--hero { display: grid; align-content: center; padding-block: clamp(40px, 8vw, 110px); }
+.jsec__in { padding-top: calc(var(--header-h) + clamp(16px, 3vw, 40px)); }
+.jsec--hero .jsec__in { padding-top: 0; }
+.jsec__row { margin-top: clamp(32px, 5vw, 64px); }
+.jsec__more { margin: clamp(28px, 4vw, 48px) 0 0; }
+
+/* ates sol altta: icerigi sagdan basla */
+@media (min-width: 1000px) {
+  .jsec__in { padding-left: clamp(0px, 24vw - 140px, 200px); }
+}
+
+/* yigin modu: JS 'stack' sinifini ekler (azaltilmis harekette eklenmez -> normal akis) */
+html.stack .jsec { position: sticky; top: 0; }
+html.stack .jsec.is-under { will-change: transform; }
+html.stack .jsec.is-covered { visibility: hidden; }
+.jsec__dim { position: absolute; inset: 0; z-index: 6; background: rgb(var(--jdim)); opacity: 0; pointer-events: none; border-radius: inherit; }
+html.stack .jsec.is-under .jsec__dim { will-change: opacity; }
+
+.jsec__title { font-size: var(--fs-h1); line-height: 1.02; letter-spacing: -0.03em; margin: 0 0 clamp(20px, 3vw, 36px); }
+.jsec .lead { margin-bottom: clamp(24px, 3vw, 40px); }
+
+/* ---------- Giris animasyonlari: baslik satir satir, lead + kartlar kademeli ---------- */
+.js .jsec__title .w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.14em; margin-bottom: -0.14em; }
+.js .jsec__title .wi { display: inline-block; transform: translateY(112%); transition: transform 900ms var(--ease-out); transition-delay: calc(var(--ln, 0) * 140ms + 120ms); }
+.js .jsec.is-in .jsec__title .wi { transform: none; }
+.js .jsec:not(.jsec--hero) > .jsec__in > .lead { opacity: 0; transform: translateY(18px); transition: opacity 800ms var(--ease-out) 300ms, transform 800ms var(--ease-out) 300ms; }
+.js .jsec.is-in > .jsec__in > .lead { opacity: 1; transform: none; }
+
+/* kartlar bolumde esit yukseklik; blog kartlari dikey */
+.journey .blogcard { display: flex; flex-direction: column; }
+.journey .blogcard .card__media { height: auto; }
+.journey .portrait { max-width: 280px; }
+.journey .gallery--home { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
+.journey .contact-grid { align-items: start; }
+.journey textarea { min-height: 96px; }
+
+/* ---------- Ates: yalnizca anasayfada bolumlerin ONUNDE (pointer-events:none); isik katmanlari metni bozmasin ---------- */
+html.journey { scroll-padding-top: 0; }
+
+/* ---------- Header nav: aktif bolum ---------- */
+.nav__link[aria-current="location"] { color: var(--fg); }
+.nav__link[aria-current="location"]::after {
+  content: ""; position: absolute; left: 50%; bottom: 0; width: 4px; height: 4px; margin-left: -2px;
+  border-radius: 50%; background: var(--accent);
+}
+@media (max-width: 860px) {
+  .nav__link[aria-current="location"]::after { left: auto; right: 4px; bottom: 50%; margin: 0 0 -2px; }
+}
+
+/* ---------- Sag kenar ilerleme noktalari ---------- */
+.jdots { position: fixed; right: clamp(8px, 1.6vw, 22px); top: 50%; transform: translateY(-50%); z-index: 40; }
+.jdots ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.jdots li { margin: 0; }
+.jdots a { position: relative; display: grid; place-items: center; width: 28px; height: 28px; text-decoration: none; }
+.jdots a::before {
+  content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--border-strong);
+  border: 1px solid var(--fg-muted); transition: transform 300ms var(--ease-out), background-color 300ms;
+}
+.jdots a:hover::before { background: var(--fg-muted); }
+.jdots a.is-active::before { background: var(--accent); border-color: var(--accent); transform: scale(1.5); box-shadow: 0 0 10px var(--fire-glow); }
+.jdots__tip {
+  position: absolute; right: 100%; top: 50%; margin-right: 6px; padding: 4px 10px; border-radius: var(--r-pill);
+  background: var(--surface-2); border: 1px solid var(--border); color: var(--fg); font-size: var(--fs-label); white-space: nowrap;
+  opacity: 0; transform: translate(6px, -50%); pointer-events: none; transition: opacity 200ms, transform 200ms var(--ease-out);
+}
+.jdots a:hover .jdots__tip, .jdots a:focus-visible .jdots__tip { opacity: 1; transform: translate(0, -50%); }
+@media (max-width: 700px) {
+  .jdots { display: none; }
+}
+
+/* ---------- Azaltilmis hareket: gecisler aninda, yigin yok ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .js .jsec__title .wi, .js .jsec > .jsec__in > .lead { transform: none; opacity: 1; transition: none; }
+  .jdots a::before, .jdots__tip { transition: none; }
+  .jsec + .jsec { border-radius: 0; box-shadow: none; }
+}

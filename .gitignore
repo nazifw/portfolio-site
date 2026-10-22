@@ -1,0 +1,5 @@
+_orig_bak/
+web/
+node_modules/
+.env
+*.log

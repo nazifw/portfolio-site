@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web Erişilebilirliği: Herkes İçin Tasarım | Ad Soyad</title>
+<meta name="description" content="Anlamsal HTML, klavye erişimi ve renk kontrastıyla erişilebilir siteler için pratik bir başlangıç listesi.">
+<meta name="theme-color" content="#1a1714">
+<meta name="author" content="Ad Soyad">
+<meta property="og:title" content="Web Erişilebilirliği: Herkes İçin Tasarım | Ad Soyad">
+<meta property="og:type" content="website">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<script>(function(){var d=document.documentElement;try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';d.setAttribute('data-theme',t);if(localStorage.getItem('lang')==='en')d.setAttribute('lang','en');}catch(e){}d.classList.add('js');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..600,0..100;1,9..144,400..600,0..100&amp;family=Inter:wght@400..700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/fire.css">
+<link rel="stylesheet" href="css/cursor.css">
+</head>
+<body data-page="post3">
+<a class="skip-link" href="#main" data-i18n="ui.skip">İçeriğe geç</a>
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="index.html"><span class="brand__dot" aria-hidden="true"></span>Ad Soyad</a>
+    <nav class="nav" id="site-nav" aria-label="Ana menü" data-i18n-attr="aria-label:ui.mainNav">
+      <ul class="nav__list"><li><a class="nav__link" href="index.html" data-i18n="nav.home">Anasayfa</a></li><li><a class="nav__link" href="hakkimda.html" data-i18n="nav.about">Hakkımda</a></li><li><a class="nav__link" href="projeler.html" data-i18n="nav.projects">Projeler</a></li><li><a class="nav__link" href="blog.html" aria-current="page" data-i18n="nav.blog">Blog</a></li><li><a class="nav__link" href="galeri.html" data-i18n="nav.gallery">Galeri</a></li><li><a class="nav__link" href="iletisim.html" data-i18n="nav.contact">İletişim</a></li></ul>
+    </nav>
+    <div class="controls">
+      <button type="button" class="icon-btn theme-toggle" aria-pressed="false" aria-label="Temayı değiştir (koyu/açık)" data-i18n-attr="aria-label:ui.theme"><svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.500A8.500 8.500 0 0 1 9.500 4a8.500 8.500 0 1 0 10.500 10.500z"/></svg><svg class="icon-flame" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c1 4.5 6 6.5 6 12a6 6 0 0 1-12 0c0-3 1.7-4.5 2.6-6.7C10 8.700 11 9.500 11 11c1.500-2 2-5 1-9z"/></svg></button>
+      <div class="lang-switch" role="group" aria-label="Dil seçimi" data-i18n-attr="aria-label:ui.lang">
+        <button type="button" data-lang-set="tr" lang="tr" aria-pressed="true">TR</button>
+        <button type="button" data-lang-set="en" lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button type="button" class="icon-btn menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menüyü aç" data-i18n-attr="aria-label:ui.menuOpen"><span class="bars"></span></button>
+    </div>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+<article class="section post-wrap" aria-labelledby="h1">
+  <div class="container post">
+    <p class="eyebrow"><a href="blog.html" data-i18n="post.back">← Blog</a></p>
+    <h1 id="h1" style="font-size:clamp(2.2rem,4.5vw+0.5rem,4rem)" data-i18n="post3.t">Web Erişilebilirliği: Herkes İçin Tasarım</h1>
+    <div class="post-meta"><time datetime="2026-09-09" data-i18n="post3.date">9 Eylül 2026</time><span data-i18n="post3.read">5 dk okuma</span><span class="tag" data-i18n="post3.tag">Erişilebilirlik</span></div>
+    <figure><img src="img/blog-3.svg" alt="Web Erişilebilirliği: Herkes İçin Tasarım yazısı için ekran görüntüsü yerine geçen görsel" data-i18n-attr="alt:post3.alt" width="1200" height="675">
+      <figcaption data-i18n="post3.cap">Ekran görüntüsü yerine geçen görsel: solda klavye odak halkası olan bir buton, sağda üç kontrast örneği. Yeşil noktalar yeterli, kırmızı nokta yetersiz kontrastı belirtir.</figcaption></figure>
+    <p class="lead" data-i18n="post3.intro">Erişilebilirlik sonradan eklenen bir özellik değil, baştan düşünülen bir tasarım kararıdır. Bu yazı pratik bir başlangıç listesi.</p>
+    <h2 data-i18n="post3.s0.h">Anlamsal HTML ile başla</h2><p data-i18n="post3.s0.p0">header, nav, main, article ve footer gibi etiketler ekran okuyuculara sayfanın haritasını verir. Her sayfada yalnızca bir h1 olmalı ve başlıklar sıralı ilerlemeli.</p><p data-i18n="post3.s0.p1">Görsellere anlamlı alt metin yazmak da bu işin vazgeçilmez parçasıdır.</p><h2 data-i18n="post3.s1.h">Klavye ve odak</h2><p data-i18n="post3.s1.p0">Fare kullanamayan biri siteni yalnızca Tab tuşuyla gezer. Odaklanan öğenin açıkça görünmesi gerekir; odak çerçevesini asla yok etme.</p><p data-i18n="post3.s1.p1">Görseldeki sarı halka bu fikri gösteriyor. CSS'te şöyle yazılır:</p><pre><code>:focus-visible {
+  outline: 2px solid #ffd08a;
+  outline-offset: 3px;
+}</code></pre><h2 data-i18n="post3.s2.h">Renk kontrastı</h2><p data-i18n="post3.s2.p0">Normal metin için arka planla en az 4.5:1 kontrast oranı hedeflenir. Soluk gri üzerine açık gri yazı güzel görünebilir ama birçok kişi onu okuyamaz.</p><p data-i18n="post3.s2.p1">Ayrıca bilgiyi yalnızca renkle iletme; yanına ikon ya da metin ekle.</p><h2 data-i18n="post3.s3.h">Sonuç</h2><p data-i18n="post3.s3.p0">Erişilebilir site, herkes için daha iyi bir sitedir. Küçük alışkanlıklarla başla: anlamlı etiketler, görünür odak, yeterli kontrast.</p>
+    <nav class="post-nav" aria-label="Yazılar arası gezinme" data-i18n-attr="aria-label:post.navAria">
+      <a class="btn btn--ghost" href="blog-2.html"><span aria-hidden="true">&larr;</span> <span data-i18n="post.prevPost">Önceki yazı</span></a>
+      <a class="btn" href="blog.html"><span data-i18n="post.toBlog">Tüm yazılar</span> <span class="arrow" aria-hidden="true">&rarr;</span></a>
+    </nav>
+  </div>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <p class="footer__big" data-i18n="foot.big">İyi geceler, yolun açık olsun.</p>
+        <p class="muted" data-i18n="foot.sub">Sade arayüzler, düzgün kod, sıcak bir ateş.</p>
+      </div>
+      <nav aria-label="Alt menü" data-i18n-attr="aria-label:ui.footNav">
+        <p class="footer__label" data-i18n="foot.pages">Sayfalar</p>
+        <ul class="footer__list"><li><a href="index.html" data-i18n="nav.journey">Ana yolculuk</a></li><li><a href="hakkimda.html" data-i18n="nav.about">Hakkımda</a></li><li><a href="projeler.html" data-i18n="nav.projects">Projeler</a></li><li><a href="blog.html" data-i18n="nav.blog">Blog</a></li><li><a href="galeri.html" data-i18n="nav.gallery">Galeri</a></li><li><a href="iletisim.html" data-i18n="nav.contact">İletişim</a></li></ul>
+      </nav>
+      <div>
+        <p class="footer__label" data-i18n="foot.contact">İletişim</p>
+        <ul class="footer__list">
+          <li><a href="mailto:ad.soyad@example.com">ad.soyad@example.com</a></li>
+          <li><a href="tel:+905550000000">+90 555 000 00 00</a></li>
+          <li>İstanbul, Türkiye [PLACEHOLDER]</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; <span data-year>2026</span> Ad Soyad. <span data-i18n="foot.rights">Üniversite vize ödevi için hazırlanmıştır.</span></p>
+      <button type="button" class="btn btn--ghost" id="to-top" aria-label="Sayfanın başına dön" data-i18n-attr="aria-label:ui.top"><span data-i18n="foot.top">Yukarı</span> <span class="arrow" aria-hidden="true">&uarr;</span></button>
+    </div>
+  </div>
+</footer>
+<script src="js/i18n.js" defer></script>
+<script src="js/theme.js" defer></script>
+<script src="js/main.js" defer></script>
+<script src="js/fire.js" defer></script>
+<script src="js/cursor.js" defer></script>
+</body>
+</html>

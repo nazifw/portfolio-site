@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark" class="journey">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ad Soyad | Web ve Animasyon Portfolyosu</title>
+<meta name="description" content="Ad Soyad&#x27;ın kişisel sitesi: hakkında kısa bilgi, grafik animasyon projeleri, galeri ve blog yazıları.">
+<meta name="theme-color" content="#1a1714">
+<meta name="author" content="Ad Soyad">
+<meta property="og:title" content="Ad Soyad | Web ve Animasyon Portfolyosu">
+<meta property="og:type" content="website">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<script>(function(){var d=document.documentElement;try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';d.setAttribute('data-theme',t);if(localStorage.getItem('lang')==='en')d.setAttribute('lang','en');}catch(e){}d.classList.add('js');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..600,0..100;1,9..144,400..600,0..100&amp;family=Inter:wght@400..700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/journey.css">
+<link rel="stylesheet" href="css/fire.css">
+<link rel="stylesheet" href="css/cursor.css">
+</head>
+<body data-page="home" class="journey">
+<a class="skip-link" href="#main" data-i18n="ui.skip">İçeriğe geç</a>
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="index.html"><span class="brand__dot" aria-hidden="true"></span>Ad Soyad</a>
+    <nav class="nav" id="site-nav" aria-label="Ana menü" data-i18n-attr="aria-label:ui.mainNav">
+      <ul class="nav__list"><li><a class="nav__link" href="#anasayfa" data-i18n="nav.home">Anasayfa</a></li><li><a class="nav__link" href="#hakkimda" data-i18n="nav.about">Hakkımda</a></li><li><a class="nav__link" href="#projeler" data-i18n="nav.projects">Projeler</a></li><li><a class="nav__link" href="#blog" data-i18n="nav.blog">Blog</a></li><li><a class="nav__link" href="#galeri" data-i18n="nav.gallery">Galeri</a></li><li><a class="nav__link" href="#iletisim" data-i18n="nav.contact">İletişim</a></li></ul>
+    </nav>
+    <div class="controls">
+      <button type="button" class="icon-btn theme-toggle" aria-pressed="false" aria-label="Temayı değiştir (koyu/açık)" data-i18n-attr="aria-label:ui.theme"><svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.500A8.500 8.500 0 0 1 9.500 4a8.500 8.500 0 1 0 10.500 10.500z"/></svg><svg class="icon-flame" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c1 4.5 6 6.5 6 12a6 6 0 0 1-12 0c0-3 1.7-4.5 2.6-6.7C10 8.700 11 9.500 11 11c1.500-2 2-5 1-9z"/></svg></button>
+      <div class="lang-switch" role="group" aria-label="Dil seçimi" data-i18n-attr="aria-label:ui.lang">
+        <button type="button" data-lang-set="tr" lang="tr" aria-pressed="true">TR</button>
+        <button type="button" data-lang-set="en" lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button type="button" class="icon-btn menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menüyü aç" data-i18n-attr="aria-label:ui.menuOpen"><span class="bars"></span></button>
+    </div>
+  </div>
+</header>
+<nav class="jdots" aria-label="Bölüm ilerlemesi" data-i18n-attr="aria-label:j.progress">
+  <ol>
+    <li><a href="#anasayfa" data-sec="anasayfa" aria-label="Anasayfa" data-i18n-attr="aria-label:nav.home"><span class="jdots__tip" aria-hidden="true" data-i18n="nav.home">Anasayfa</span></a></li>
+    <li><a href="#hakkimda" data-sec="hakkimda" aria-label="Hakkımda" data-i18n-attr="aria-label:nav.about"><span class="jdots__tip" aria-hidden="true" data-i18n="nav.about">Hakkımda</span></a></li>
+    <li><a href="#projeler" data-sec="projeler" aria-label="Projeler" data-i18n-attr="aria-label:nav.projects"><span class="jdots__tip" aria-hidden="true" data-i18n="nav.projects">Projeler</span></a></li>
+    <li><a href="#blog" data-sec="blog" aria-label="Blog" data-i18n-attr="aria-label:nav.blog"><span class="jdots__tip" aria-hidden="true" data-i18n="nav.blog">Blog</span></a></li>
+    <li><a href="#galeri" data-sec="galeri" aria-label="Galeri" data-i18n-attr="aria-label:nav.gallery"><span class="jdots__tip" aria-hidden="true" data-i18n="nav.gallery">Galeri</span></a></li>
+    <li><a href="#iletisim" data-sec="iletisim" aria-label="İletişim" data-i18n-attr="aria-label:nav.contact"><span class="jdots__tip" aria-hidden="true" data-i18n="nav.contact">İletişim</span></a></li>
+  </ol>
+</nav>
+<main id="main" tabindex="-1">
+<section class="jsec jsec--hero hero" id="anasayfa" data-jsec aria-labelledby="h1">
+  <div class="container jsec__in">
+    <div data-parallax>
+      <p class="eyebrow hero__anim" style="--d:100"><span data-i18n="home.eyebrow">Bilgisayar Mühendisliği öğrencisi · [PLACEHOLDER Üniversite]</span></p>
+      <h1 class="hero__anim" id="h1" style="--d:250" data-i18n="home.h1" data-i18n-html>Merhaba, ben <em>Ad Soyad</em>.</h1>
+      <p class="lead hero__anim" style="--d:450" data-i18n="home.lead">Web, grafik animasyon ve yazılım üzerine öğrenen; ateşin başında kod yazmayı seven bir üniversite öğrencisiyim.</p>
+      <div class="btn-row hero__anim" style="--d:600">
+        <a class="btn" href="#projeler"><span data-i18n="home.cta1">Projelerime göz at</span> <span class="arrow" aria-hidden="true">&darr;</span></a>
+        <a class="btn btn--ghost" href="#iletisim" data-i18n="home.cta2">İletişime geç</a>
+      </div>
+    </div>
+    <p class="hero__scroll hero__anim" style="--d:900" data-i18n="home.scroll">Aşağı kaydır</p>
+  </div>
+</section>
+
+<section class="jsec" id="hakkimda" data-jsec aria-labelledby="home-about">
+  <div class="container jsec__in">
+    <h2 class="jsec__title" id="home-about" data-i18n="home.aboutH2">Kısaca ben</h2>
+    <div class="split split--top">
+      <figure class="portrait reveal">
+        <div class="portrait__frame"><img src="img/portrait.svg" alt="Ad Soyad&#x27;ın portre yer tutucusu" data-i18n-attr="alt:home.portraitAlt" width="600" height="800" loading="lazy"></div>
+      </figure>
+      <div class="reveal">
+        <p data-i18n="home.aboutP1">Ben Ad Soyad. Bilgisayar mühendisliği okuyorum; en çok web arayüzleri, grafik animasyon ve küçük yazılım araçları yapmaktan keyif alıyorum.</p>
+        <p data-i18n="home.aboutP2">Bir fikri önce kâğıda dökerim, sonra kodla canlandırırım. Bu site de hem ödevim hem de öğrendiklerimi gösterdiğim bir vitrin.</p>
+        <dl class="facts">
+          <dt data-i18n="fact.dept">Bölüm</dt><dd data-i18n="fact.deptV">Bilgisayar Mühendisliği [PLACEHOLDER]</dd>
+          <dt data-i18n="fact.year">Sınıf</dt><dd data-i18n="fact.yearV">3. sınıf [PLACEHOLDER]</dd>
+          <dt data-i18n="fact.city">Şehir</dt><dd data-i18n="fact.cityV">İstanbul [PLACEHOLDER]</dd>
+        </dl>
+      </div>
+    </div>
+    <div class="two-col jsec__row">
+      <div class="reveal">
+        <h3 data-i18n="about.skH3a">Teknik yetenekler</h3>
+        <ol class="skill-list"><li><div class="skill__head"><span class="name" id="sk-html">HTML</span><span class="skill__pct">90%</span></div><div class="bar" role="progressbar" aria-labelledby="sk-html" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90" aria-valuetext="90%" style="--v:90"><span class="bar__fill"></span></div></li><li><div class="skill__head"><span class="name" id="sk-css">CSS</span><span class="skill__pct">85%</span></div><div class="bar" role="progressbar" aria-labelledby="sk-css" aria-valuemin="0" aria-valuemax="100" aria-valuenow="85" aria-valuetext="85%" style="--v:85"><span class="bar__fill"></span></div></li><li><div class="skill__head"><span class="name" id="sk-git">Git</span><span class="skill__pct">75%</span></div><div class="bar" role="progressbar" aria-labelledby="sk-git" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75" aria-valuetext="75%" style="--v:75"><span class="bar__fill"></span></div></li><li><div class="skill__head"><span class="name" id="sk-javascript">JavaScript</span><span class="skill__pct">70%</span></div><div class="bar" role="progressbar" aria-labelledby="sk-javascript" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" aria-valuetext="70%" style="--v:70"><span class="bar__fill"></span></div></li></ol>
+      </div>
+      <div class="panel reveal">
+        <h3 data-i18n="about.intH2">İlgi alanlarım</h3>
+        <ul><li data-i18n="int.0">Web geliştirme ve arayüz tasarımı</li><li data-i18n="int.1">Grafik animasyon ve hareketli tasarım</li><li data-i18n="int.2">Açık kaynak projeler</li><li data-i18n="int.3">Fotoğrafçılık</li><li data-i18n="int.5">Kamp, yürüyüş ve doğa</li></ul>
+      </div>
+    </div>
+    <p class="jsec__more reveal"><a class="btn btn--ghost" href="hakkimda.html"><span data-i18n="j.open">Tam sayfayı aç</span> <span class="arrow" aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</section>
+
+<section class="jsec" id="projeler" data-jsec aria-labelledby="home-projects">
+  <div class="container jsec__in">
+    <h2 class="jsec__title" id="home-projects" data-i18n="home.projH2">Seçili projeler</h2>
+    <p class="lead" data-i18n="home.projLead">Dönem boyunca hazırladığım çalışmalardan üçü. Tamamı projeler sayfasında.</p>
+    <div class="grid grid--3" data-stagger>
+      <article class="card reveal">
+  <figure class="card__media reveal--clip"><img src="img/proj-1.svg" alt="Zıplayan Top: 12 İlke proje görseli (yer tutucu)" data-i18n-attr="alt:p1.alt" width="800" height="600" loading="lazy"></figure>
+  <div class="card__body">
+    <h3><a class="stretched" href="projeler.html" data-i18n="p1.t">Zıplayan Top: 12 İlke</a></h3>
+    <p data-i18n="p1.d">Squash &amp; stretch, zamanlama ve yavaş giriş-çıkış ilkelerini tek bir top animasyonunda denediğim ilk ödev.</p>
+    <p class="card__meta" data-i18n="p1.m">Hafta 3 · Temel ilkeler</p>
+  </div>
+</article><article class="card reveal">
+  <figure class="card__media reveal--clip"><img src="img/proj-2.svg" alt="Logo Animasyonu proje görseli (yer tutucu)" data-i18n-attr="alt:p2.alt" width="800" height="600" loading="lazy"></figure>
+  <div class="card__body">
+    <h3><a class="stretched" href="projeler.html" data-i18n="p2.t">Logo Animasyonu</a></h3>
+    <p data-i18n="p2.d">Basit bir logo için 4 saniyelik giriş animasyonu: şekil dönüşümleri, ritim ve sade renk geçişleri.</p>
+    <p class="card__meta" data-i18n="p2.m">Hafta 5 · Motion branding</p>
+  </div>
+</article><article class="card reveal">
+  <figure class="card__media reveal--clip"><img src="img/proj-5.svg" alt="Parçacık Sistemi: Ateş ve Kıvılcım proje görseli (yer tutucu)" data-i18n-attr="alt:p5.alt" width="800" height="600" loading="lazy"></figure>
+  <div class="card__body">
+    <h3><a class="stretched" href="projeler.html" data-i18n="p5.t">Parçacık Sistemi: Ateş ve Kıvılcım</a></h3>
+    <p data-i18n="p5.d">Kamp ateşi hissini veren parçacık sistemi; hız, ömür ve renk geçişlerini ayarladım. Bu sitenin ilham kaynağı.</p>
+    <p class="card__meta" data-i18n="p5.m">Hafta 11 · Efektler</p>
+  </div>
+</article>
+    </div>
+    <p class="jsec__more reveal"><a class="btn btn--ghost" href="projeler.html"><span data-i18n="j.open">Tam sayfayı aç</span> <span class="arrow" aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</section>
+
+<section class="jsec" id="blog" data-jsec aria-labelledby="home-blog">
+  <div class="container jsec__in">
+    <h2 class="jsec__title" id="home-blog" data-i18n="home.blogH2">Son yazılar</h2>
+    <div class="grid grid--3" data-stagger>
+      <article class="card blogcard reveal">
+  <figure class="card__media"><img src="img/blog-1.svg" alt="Git ile Başlangıç: Versiyon Kontrolü Neden Hayat Kurtarır? yazısı için ekran görüntüsü yerine geçen görsel" data-i18n-attr="alt:post1.alt" width="1200" height="675" loading="lazy"></figure>
+  <div class="card__body">
+    <p class="when"><time datetime="2026-10-12" data-i18n="post1.date">12 Ekim 2026</time> · <span data-i18n="post1.read">5 dk okuma</span></p>
+    <h3><a class="stretched" href="blog-1.html" data-i18n="post1.t">Git ile Başlangıç: Versiyon Kontrolü Neden Hayat Kurtarır?</a></h3>
+    <p data-i18n="post1.ex">Git'in temel fikrini, en sık kullanılan komutları ve dal mantığını örneklerle anlattım.</p>
+    <p class="card__meta"><span data-i18n="blog.read">Yazıyı oku</span> <span aria-hidden="true">&rarr;</span></p>
+  </div>
+</article><article class="card blogcard reveal">
+  <figure class="card__media"><img src="img/blog-2.svg" alt="CSS Grid ve Flexbox: Hangisini Ne Zaman Kullanmalı? yazısı için ekran görüntüsü yerine geçen görsel" data-i18n-attr="alt:post2.alt" width="1200" height="675" loading="lazy"></figure>
+  <div class="card__body">
+    <p class="when"><time datetime="2026-09-28" data-i18n="post2.date">28 Eylül 2026</time> · <span data-i18n="post2.read">6 dk okuma</span></p>
+    <h3><a class="stretched" href="blog-2.html" data-i18n="post2.t">CSS Grid ve Flexbox: Hangisini Ne Zaman Kullanmalı?</a></h3>
+    <p data-i18n="post2.ex">İki düzen sisteminin farkı, ortak kullanımı ve responsive tasarımda işe yarayan küçük bir kalıp.</p>
+    <p class="card__meta"><span data-i18n="blog.read">Yazıyı oku</span> <span aria-hidden="true">&rarr;</span></p>
+  </div>
+</article><article class="card blogcard reveal">
+  <figure class="card__media"><img src="img/blog-3.svg" alt="Web Erişilebilirliği: Herkes İçin Tasarım yazısı için ekran görüntüsü yerine geçen görsel" data-i18n-attr="alt:post3.alt" width="1200" height="675" loading="lazy"></figure>
+  <div class="card__body">
+    <p class="when"><time datetime="2026-09-09" data-i18n="post3.date">9 Eylül 2026</time> · <span data-i18n="post3.read">5 dk okuma</span></p>
+    <h3><a class="stretched" href="blog-3.html" data-i18n="post3.t">Web Erişilebilirliği: Herkes İçin Tasarım</a></h3>
+    <p data-i18n="post3.ex">Anlamsal HTML, klavye erişimi ve renk kontrastıyla erişilebilir siteler için pratik bir başlangıç listesi.</p>
+    <p class="card__meta"><span data-i18n="blog.read">Yazıyı oku</span> <span aria-hidden="true">&rarr;</span></p>
+  </div>
+</article>
+    </div>
+    <p class="jsec__more reveal"><a class="btn btn--ghost" href="blog.html"><span data-i18n="j.open">Tam sayfayı aç</span> <span class="arrow" aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</section>
+
+<section class="jsec" id="galeri" data-jsec aria-labelledby="home-gallery">
+  <div class="container jsec__in">
+    <h2 class="jsec__title" id="home-gallery" data-i18n="home.galH2">Galeriden kareler</h2>
+    <div class="gallery gallery--home" data-stagger>
+      <figure class="shot reveal"><a href="img/gal-1.svg" data-lightbox><img src="img/gal-1.svg" alt="Turuncu tonlarda soyut bir gün batımı görseli." data-i18n-attr="alt:g1.alt" width="800" height="600" loading="lazy"></a>
+  <figcaption data-i18n="g1.cap">Ateşin ilk ışığı: akşamüstü renkleri.</figcaption></figure><figure class="shot reveal"><a href="img/gal-3.svg" data-lightbox><img src="img/gal-3.svg" alt="Koyu mavi tonlarda, parlak bir daire içeren gece göğü." data-i18n-attr="alt:g3.alt" width="800" height="600" loading="lazy"></a>
+  <figcaption data-i18n="g3.cap">Kamp gecesinden bir an (yer tutucu).</figcaption></figure><figure class="shot reveal"><a href="img/gal-6.svg" data-lightbox><img src="img/gal-6.svg" alt="Yeşil tonlarda yumuşak bir sis manzarası." data-i18n-attr="alt:g6.alt" width="800" height="600" loading="lazy"></a>
+  <figcaption data-i18n="g6.cap">Sabah sisi, sakinlik ve boşluk.</figcaption></figure><figure class="shot reveal"><a href="img/gal-7.svg" data-lightbox><img src="img/gal-7.svg" alt="Sıcak tonlarda soyut bir çalışma masası kompozisyonu." data-i18n-attr="alt:g7.alt" width="800" height="600" loading="lazy"></a>
+  <figcaption data-i18n="g7.cap">Kod yazdığım köşe; yanında her zaman bir fincan kahve.</figcaption></figure>
+    </div>
+    <p class="jsec__more reveal"><a class="btn btn--ghost" href="galeri.html"><span data-i18n="j.open">Tam sayfayı aç</span> <span class="arrow" aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</section>
+
+<section class="jsec" id="iletisim" data-jsec aria-labelledby="home-contact">
+  <div class="container jsec__in">
+    <h2 class="jsec__title" id="home-contact" data-i18n="contact.h1" data-i18n-html>Bir <em>merhaba</em> de.</h2>
+    <div class="contact-grid">
+      <div class="reveal">
+        <h3 data-i18n="contact.infoH2">İletişim bilgileri</h3>
+        <address>
+          <ul class="info-list">
+            <li><span class="label" data-i18n="contact.addr">Adres</span><span data-i18n="contact.addrV">[PLACEHOLDER] Üniversite Mah., Örnek Sk. No: 1, Kadıköy / İstanbul</span></li>
+            <li><span class="label" data-i18n="contact.phone">Telefon</span><a href="tel:+905550000000">+90 555 000 00 00</a> <span class="muted">[PLACEHOLDER]</span></li>
+            <li><span class="label" data-i18n="contact.mail">E-posta</span><a href="mailto:ad.soyad@example.com">ad.soyad@example.com</a><button type="button" class="copy-btn" data-copy="ad.soyad@example.com" data-i18n="copy.btn">Kopyala</button></li>
+          </ul>
+        </address>
+      </div>
+      <div class="panel reveal">
+        <h3 data-i18n="contact.formH2">Mesaj gönder</h3>
+        <form id="contact-form" class="form" action="mailto:ad.soyad@example.com" method="post" enctype="text/plain" novalidate>
+          <div class="field">
+            <label for="cf-name"><span data-i18n="form.name">Adınız</span> <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="cf-name" name="name" autocomplete="name" required aria-describedby="cf-name-err">
+            <p class="error" id="cf-name-err" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="cf-email"><span data-i18n="form.email">E-posta</span> <span class="req" aria-hidden="true">*</span></label>
+            <input type="email" id="cf-email" name="email" autocomplete="email" required aria-describedby="cf-email-err">
+            <p class="error" id="cf-email-err" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="cf-subject"><span data-i18n="form.subject">Konu</span> <span class="req" aria-hidden="true">*</span></label>
+            <select id="cf-subject" name="subject" required aria-describedby="cf-subject-err"><option value="" data-i18n="subj.none">Bir konu seçin</option><option value="genel" data-i18n="subj.genel">Genel soru</option><option value="proje" data-i18n="subj.proje">Proje hakkında</option><option value="is" data-i18n="subj.is">İş birliği</option><option value="diger" data-i18n="subj.diger">Diğer</option></select>
+            <p class="error" id="cf-subject-err" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="cf-message"><span data-i18n="form.message">Mesajınız</span> <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="cf-message" name="message" maxlength="600" rows="4" required aria-describedby="cf-message-err cf-counter"></textarea>
+            <p class="error" id="cf-message-err" aria-live="polite"></p>
+            <p class="hint" id="cf-counter" data-i18n="form.counter">0 / 600 karakter</p>
+          </div>
+          <div class="field">
+            <label class="check" for="cf-consent"><input type="checkbox" id="cf-consent" name="consent" required aria-describedby="cf-consent-err"><span data-i18n="form.consent">Mesajımın yanıtlanması için iletişim bilgilerimin kullanılmasını kabul ediyorum.</span></label>
+            <p class="error" id="cf-consent-err" aria-live="polite"></p>
+          </div>
+          <div><button type="submit" class="btn"><span data-i18n="form.send">Gönder</span> <span class="arrow" aria-hidden="true">&rarr;</span></button></div>
+        </form>
+        <div class="thanks" id="form-thanks" role="status" hidden>
+          <div class="check-mark" aria-hidden="true">&#10003;</div>
+          <h3 data-i18n="form.okH">Teşekkürler, mesajın alındı!</h3>
+          <p data-i18n="form.okP">Bu bir ödev sitesi olduğu için mesaj gerçekten gönderilmedi; ancak form doğrulaması ve teşekkür durumu çalışıyor.</p>
+          <button type="button" class="btn btn--ghost" id="form-again" data-i18n="form.again">Yeni mesaj yaz</button>
+        </div>
+      </div>
+    </div>
+    <p class="jsec__more reveal"><a class="btn btn--ghost" href="iletisim.html"><span data-i18n="j.open">Tam sayfayı aç</span> <span class="arrow" aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <p class="footer__big" data-i18n="foot.big">İyi geceler, yolun açık olsun.</p>
+        <p class="muted" data-i18n="foot.sub">Sade arayüzler, düzgün kod, sıcak bir ateş.</p>
+      </div>
+      <nav aria-label="Alt menü" data-i18n-attr="aria-label:ui.footNav">
+        <p class="footer__label" data-i18n="foot.pages">Sayfalar</p>
+        <ul class="footer__list"><li><a href="index.html" data-i18n="nav.home">Anasayfa</a></li><li><a href="hakkimda.html" data-i18n="nav.about">Hakkımda</a></li><li><a href="projeler.html" data-i18n="nav.projects">Projeler</a></li><li><a href="blog.html" data-i18n="nav.blog">Blog</a></li><li><a href="galeri.html" data-i18n="nav.gallery">Galeri</a></li><li><a href="iletisim.html" data-i18n="nav.contact">İletişim</a></li></ul>
+      </nav>
+      <div>
+        <p class="footer__label" data-i18n="foot.contact">İletişim</p>
+        <ul class="footer__list">
+          <li><a href="mailto:ad.soyad@example.com">ad.soyad@example.com</a></li>
+          <li><a href="tel:+905550000000">+90 555 000 00 00</a></li>
+          <li>İstanbul, Türkiye [PLACEHOLDER]</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; <span data-year>2026</span> Ad Soyad. <span data-i18n="foot.rights">Üniversite vize ödevi için hazırlanmıştır.</span></p>
+      <button type="button" class="btn btn--ghost" id="to-top" aria-label="Sayfanın başına dön" data-i18n-attr="aria-label:ui.top"><span data-i18n="foot.top">Yukarı</span> <span class="arrow" aria-hidden="true">&uarr;</span></button>
+    </div>
+  </div>
+</footer>
+<script src="js/i18n.js" defer></script>
+<script src="js/theme.js" defer></script>
+<script src="js/main.js" defer></script>
+<script src="js/fire.js" defer></script>
+<script src="js/cursor.js" defer></script>
+</body>
+</html>

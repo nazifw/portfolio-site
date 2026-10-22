@@ -1,0 +1,162 @@
+/* cursor.css - Ember ozel imleci. Yalnizca js/cursor.js basariyla basladiginda (.has-custom-cursor) etkin. */
+
+.has-custom-cursor,
+.has-custom-cursor *,
+.has-custom-cursor a,
+.has-custom-cursor button,
+.has-custom-cursor input,
+.has-custom-cursor textarea,
+.has-custom-cursor select,
+.has-custom-cursor label,
+.has-custom-cursor [role="button"],
+.has-custom-cursor [data-cursor] {
+  cursor: none !important;
+}
+
+.cc-dot, .cc-halo {
+  position: fixed;
+  top: 0; left: 0;
+  width: 0; height: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity .2s ease-out;
+  will-change: transform;
+}
+.cc-dot.cc-hidden, .cc-halo.cc-hidden { opacity: 0; }
+
+/* cekirdek */
+.cc-dot i {
+  position: absolute;
+  left: -4px; top: -4px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--fire-hot, #FFE2A0) 0%, var(--accent, #FF7A2F) 100%);
+  transform: scale(var(--ds, 1));
+  transition: transform .28s cubic-bezier(.2, .8, .2, 1), background-color .18s;
+}
+.cc-dot[data-state="link"] i { --ds: .75; }
+.cc-dot[data-state="button"] i,
+.cc-dot[data-state="view"] i,
+.cc-dot[data-state="drag"] i { --ds: 0; }
+.cc-dot[data-state="text"] i {
+  --ds: 1;
+  transform: scale(.25, 2.75);
+  background: var(--accent, #FF7A2F);
+  border-radius: 4px;
+}
+.cc-dot.cc-down i { transform: scale(.6); }
+
+/* halo */
+.cc-halo { --s: 1; --press: 1; --heat: 0; --t: .28s; }
+.cc-halo .cc-ring {
+  position: absolute;
+  left: -18px; top: -18px;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 1.5px solid rgba(233, 164, 126, .55);
+  background: radial-gradient(circle, rgba(233, 164, 126, .16) 0%, transparent 70%);
+  transform: scale(calc(var(--s) * var(--press) * (1 + var(--heat) * .15)));
+  transition: transform var(--t) cubic-bezier(.2, .8, .2, 1), background-color var(--t), border-color var(--t), opacity var(--t);
+}
+:root[data-theme="light"] .cc-halo .cc-ring {
+  border-color: rgba(158, 67, 37, .55);
+  background: radial-gradient(circle, rgba(158, 67, 37, .12) 0%, transparent 70%);
+}
+/* atese yaklasinca isinma */
+.cc-halo .cc-ring::after {
+  content: "";
+  position: absolute; inset: -6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(243, 194, 155, .5) 0%, rgba(243, 194, 155, 0) 70%);
+  opacity: var(--heat);
+  transition: opacity .15s linear;
+}
+.cc-halo .cc-ring::before {
+  content: "";
+  position: absolute; inset: -1.5px;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent-hot, #FFB347);
+  opacity: var(--heat);
+}
+
+.cc-halo[data-state="link"] { --s: 1.78; }
+.cc-halo[data-state="link"] .cc-ring { border-color: transparent; background: var(--accent-soft, rgba(255, 122, 47, .12)); }
+.cc-halo[data-state="button"] { --s: 2; --t: .32s; }
+.cc-halo[data-state="button"] .cc-ring { border-color: transparent; background: color-mix(in srgb, var(--accent, #FF7A2F) 90%, transparent); }
+.cc-halo[data-state="view"] { --s: 2.67; --t: .36s; }
+.cc-halo[data-state="view"] .cc-ring { border-color: transparent; background: var(--accent, #FF7A2F); }
+.cc-halo[data-state="drag"] { --s: 2.22; --t: .24s; }
+.cc-halo[data-state="drag"] .cc-ring { border-color: transparent; background: var(--accent, #FF7A2F); }
+.cc-halo[data-state="text"] { --s: .67; --t: .18s; }
+.cc-halo[data-state="text"] .cc-ring { opacity: .5; }
+.cc-halo[data-state="disabled"] .cc-ring {
+  border-color: color-mix(in srgb, var(--danger, #F0675A) 40%, transparent);
+  background: color-mix(in srgb, var(--danger, #F0675A) 14%, transparent);
+}
+.cc-halo[data-state="button"] .cc-ring,
+.cc-halo[data-state="view"] .cc-ring { transition-timing-function: cubic-bezier(.34, 1.56, .64, 1); }
+.cc-halo.cc-down { --press: .85; --t: .12s; }
+
+.cc-halo[data-state="link"] .cc-ring::before,
+.cc-halo[data-state="button"] .cc-ring::before,
+.cc-halo[data-state="view"] .cc-ring::before,
+.cc-halo[data-state="drag"] .cc-ring::before { display: none; }
+
+/* etiket */
+.cc-label {
+  position: absolute;
+  left: 0; top: 0;
+  transform: translate(-50%, -50%) scale(.8);
+  opacity: 0;
+  white-space: nowrap;
+  font: 600 12px/1 var(--font-body, "Inter", system-ui, sans-serif);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--on-accent, #1A0E06);
+  transition: opacity .2s ease-out, transform .3s cubic-bezier(.34, 1.56, .64, 1);
+}
+.cc-halo[data-state="view"] .cc-label,
+.cc-halo[data-state="drag"] .cc-label,
+.cc-halo[data-state="button"] .cc-label {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  transition-delay: .06s;
+}
+.cc-halo[data-state="button"] .cc-label { font-size: 16px; letter-spacing: 0; text-transform: none; }
+
+/* tiklama dalgasi */
+.cc-ripple {
+  position: fixed;
+  z-index: 9998;
+  width: 36px; height: 36px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent, #FF7A2F);
+  pointer-events: none;
+  opacity: 0;
+  animation: cc-ripple .52s ease-out forwards;
+}
+@keyframes cc-ripple {
+  from { transform: translate(-50%, -50%) scale(1); opacity: .5; }
+  to   { transform: translate(-50%, -50%) scale(3.33); opacity: 0; }
+}
+
+/* kivilcim izi canvas'i */
+.cc-trail {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  z-index: 9998;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cc-dot i, .cc-halo .cc-ring, .cc-label { transition-duration: .01s; }
+  .cc-ripple { animation-duration: .01s; }
+}
+@media (hover: none), (pointer: coarse) {
+  .cc-dot, .cc-halo, .cc-trail, .cc-ripple { display: none !important; }
+}
+@media print { .cc-dot, .cc-halo, .cc-trail, .cc-ripple { display: none !important; } }

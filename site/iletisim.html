@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>İletişim | Ad Soyad</title>
+<meta name="description" content="Ad Soyad ile iletişime geç: adres, telefon, e-posta ve doğrulamalı iletişim formu.">
+<meta name="theme-color" content="#1a1714">
+<meta name="author" content="Ad Soyad">
+<meta property="og:title" content="İletişim | Ad Soyad">
+<meta property="og:type" content="website">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<script>(function(){var d=document.documentElement;try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';d.setAttribute('data-theme',t);if(localStorage.getItem('lang')==='en')d.setAttribute('lang','en');}catch(e){}d.classList.add('js');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..600,0..100;1,9..144,400..600,0..100&amp;family=Inter:wght@400..700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/fire.css">
+<link rel="stylesheet" href="css/cursor.css">
+</head>
+<body data-page="contact">
+<a class="skip-link" href="#main" data-i18n="ui.skip">İçeriğe geç</a>
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="index.html"><span class="brand__dot" aria-hidden="true"></span>Ad Soyad</a>
+    <nav class="nav" id="site-nav" aria-label="Ana menü" data-i18n-attr="aria-label:ui.mainNav">
+      <ul class="nav__list"><li><a class="nav__link" href="index.html" data-i18n="nav.home">Anasayfa</a></li><li><a class="nav__link" href="hakkimda.html" data-i18n="nav.about">Hakkımda</a></li><li><a class="nav__link" href="projeler.html" data-i18n="nav.projects">Projeler</a></li><li><a class="nav__link" href="blog.html" data-i18n="nav.blog">Blog</a></li><li><a class="nav__link" href="galeri.html" data-i18n="nav.gallery">Galeri</a></li><li><a class="nav__link" href="iletisim.html" aria-current="page" data-i18n="nav.contact">İletişim</a></li></ul>
+    </nav>
+    <div class="controls">
+      <button type="button" class="icon-btn theme-toggle" aria-pressed="false" aria-label="Temayı değiştir (koyu/açık)" data-i18n-attr="aria-label:ui.theme"><svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.500A8.500 8.500 0 0 1 9.500 4a8.500 8.500 0 1 0 10.500 10.500z"/></svg><svg class="icon-flame" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c1 4.5 6 6.5 6 12a6 6 0 0 1-12 0c0-3 1.7-4.5 2.6-6.7C10 8.700 11 9.500 11 11c1.500-2 2-5 1-9z"/></svg></button>
+      <div class="lang-switch" role="group" aria-label="Dil seçimi" data-i18n-attr="aria-label:ui.lang">
+        <button type="button" data-lang-set="tr" lang="tr" aria-pressed="true">TR</button>
+        <button type="button" data-lang-set="en" lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button type="button" class="icon-btn menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menüyü aç" data-i18n-attr="aria-label:ui.menuOpen"><span class="bars"></span></button>
+    </div>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+<section class="page-hero" aria-labelledby="h1">
+  <div class="container">
+    <span class="eyebrow" data-i18n="contact.eyebrow">İletişim</span>
+    <h1 id="h1" data-i18n="contact.h1" data-i18n-html>Bir <em>merhaba</em> de.</h1>
+    <p class="lead" data-i18n="contact.lead">Soru, öneri ya da iş birliği için bana ulaşabilirsin. Aşağıdaki formu doldur ya da doğrudan yaz.</p>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="container contact-grid">
+    <section class="reveal" aria-labelledby="contact-info">
+      <h2 id="contact-info" data-i18n="contact.infoH2">İletişim bilgileri</h2>
+      <address>
+        <ul class="info-list">
+          <li><span class="label" data-i18n="contact.addr">Adres</span>[PLACEHOLDER] Üniversite Mah., Örnek Sk. No: 1, Kadıköy / İstanbul</li>
+          <li><span class="label" data-i18n="contact.phone">Telefon</span><a href="tel:+905550000000">+90 555 000 00 00</a> <span class="muted">[PLACEHOLDER]</span></li>
+          <li><span class="label" data-i18n="contact.mail">E-posta</span><a href="mailto:ad.soyad@example.com">ad.soyad@example.com</a><button type="button" class="copy-btn" data-copy="ad.soyad@example.com" data-i18n="copy.btn">Kopyala</button></li>
+          <li><span class="label" data-i18n="contact.hours">Yanıt süresi</span>Hafta içi 2 iş günü</li>
+        </ul>
+      </address>
+    </section>
+
+    <section class="panel reveal" aria-labelledby="contact-form-h">
+      <h2 id="contact-form-h" data-i18n="contact.formH2">Mesaj gönder</h2>
+      <form id="contact-form" class="form" action="mailto:ad.soyad@example.com" method="post" enctype="text/plain" novalidate>
+        <div class="field">
+          <label for="cf-name"><span data-i18n="form.name">Adınız</span> <span class="req" aria-hidden="true">*</span></label>
+          <input type="text" id="cf-name" name="name" autocomplete="name" required aria-describedby="cf-name-err">
+          <p class="error" id="cf-name-err" aria-live="polite"></p>
+        </div>
+        <div class="field">
+          <label for="cf-email"><span data-i18n="form.email">E-posta</span> <span class="req" aria-hidden="true">*</span></label>
+          <input type="email" id="cf-email" name="email" autocomplete="email" required aria-describedby="cf-email-err">
+          <p class="error" id="cf-email-err" aria-live="polite"></p>
+        </div>
+        <div class="field">
+          <label for="cf-subject"><span data-i18n="form.subject">Konu</span> <span class="req" aria-hidden="true">*</span></label>
+          <select id="cf-subject" name="subject" required aria-describedby="cf-subject-err"><option value="" data-i18n="subj.none">Bir konu seçin</option><option value="genel" data-i18n="subj.genel">Genel soru</option><option value="proje" data-i18n="subj.proje">Proje hakkında</option><option value="is" data-i18n="subj.is">İş birliği</option><option value="diger" data-i18n="subj.diger">Diğer</option></select>
+          <p class="error" id="cf-subject-err" aria-live="polite"></p>
+        </div>
+        <div class="field">
+          <label for="cf-message"><span data-i18n="form.message">Mesajınız</span> <span class="req" aria-hidden="true">*</span></label>
+          <textarea id="cf-message" name="message" maxlength="600" required aria-describedby="cf-message-err cf-counter"></textarea>
+          <p class="error" id="cf-message-err" aria-live="polite"></p>
+          <p class="hint" id="cf-counter" data-i18n="form.counter">0 / 600 karakter</p>
+        </div>
+        <div class="field">
+          <label class="check" for="cf-consent"><input type="checkbox" id="cf-consent" name="consent" required aria-describedby="cf-consent-err"><span data-i18n="form.consent">Mesajımın yanıtlanması için iletişim bilgilerimin kullanılmasını kabul ediyorum.</span></label>
+          <p class="error" id="cf-consent-err" aria-live="polite"></p>
+        </div>
+        <div><button type="submit" class="btn"><span data-i18n="form.send">Gönder</span> <span class="arrow" aria-hidden="true">&rarr;</span></button></div>
+      </form>
+      <div class="thanks" id="form-thanks" role="status" hidden>
+        <div class="check-mark" aria-hidden="true">&#10003;</div>
+        <h3 data-i18n="form.okH">Teşekkürler, mesajın alındı!</h3>
+        <p data-i18n="form.okP">Bu bir ödev sitesi olduğu için mesaj gerçekten gönderilmedi; ancak form doğrulaması ve teşekkür durumu çalışıyor.</p>
+        <button type="button" class="btn btn--ghost" id="form-again" data-i18n="form.again">Yeni mesaj yaz</button>
+      </div>
+    </section>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="contact-faq">
+  <div class="container">
+    <div class="section__head reveal"><h2 id="contact-faq" data-i18n="contact.faqH2">Sık sorulan sorular</h2></div>
+    <details class="reveal"><summary data-i18n="faq0.q">Ne kadar sürede yanıt veriyorsun?</summary><p data-i18n="faq0.a">Genellikle iki iş günü içinde dönüş yaparım.</p></details><details class="reveal"><summary data-i18n="faq1.q">Hangi konularda yardımcı olabilirsin?</summary><p data-i18n="faq1.a">Web arayüzleri, küçük animasyonlar ve öğrenci projeleri konusunda fikir alışverişi yapabilirim.</p></details><details class="reveal"><summary data-i18n="faq2.q">Form gerçekten e-posta gönderiyor mu?</summary><p data-i18n="faq2.a">Hayır, bu ödevde form sahte bir işleyiciyle çalışır: doğrulama yapılır ve teşekkür mesajı gösterilir, veri gönderilmez.</p></details>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <p class="footer__big" data-i18n="foot.big">İyi geceler, yolun açık olsun.</p>
+        <p class="muted" data-i18n="foot.sub">Sade arayüzler, düzgün kod, sıcak bir ateş.</p>
+      </div>
+      <nav aria-label="Alt menü" data-i18n-attr="aria-label:ui.footNav">
+        <p class="footer__label" data-i18n="foot.pages">Sayfalar</p>
+        <ul class="footer__list"><li><a href="index.html" data-i18n="nav.journey">Ana yolculuk</a></li><li><a href="hakkimda.html" data-i18n="nav.about">Hakkımda</a></li><li><a href="projeler.html" data-i18n="nav.projects">Projeler</a></li><li><a href="blog.html" data-i18n="nav.blog">Blog</a></li><li><a href="galeri.html" data-i18n="nav.gallery">Galeri</a></li><li><a href="iletisim.html" data-i18n="nav.contact">İletişim</a></li></ul>
+      </nav>
+      <div>
+        <p class="footer__label" data-i18n="foot.contact">İletişim</p>
+        <ul class="footer__list">
+          <li><a href="mailto:ad.soyad@example.com">ad.soyad@example.com</a></li>
+          <li><a href="tel:+905550000000">+90 555 000 00 00</a></li>
+          <li>İstanbul, Türkiye [PLACEHOLDER]</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; <span data-year>2026</span> Ad Soyad. <span data-i18n="foot.rights">Üniversite vize ödevi için hazırlanmıştır.</span></p>
+      <button type="button" class="btn btn--ghost" id="to-top" aria-label="Sayfanın başına dön" data-i18n-attr="aria-label:ui.top"><span data-i18n="foot.top">Yukarı</span> <span class="arrow" aria-hidden="true">&uarr;</span></button>
+    </div>
+  </div>
+</footer>
+<script src="js/i18n.js" defer></script>
+<script src="js/theme.js" defer></script>
+<script src="js/main.js" defer></script>
+<script src="js/fire.js" defer></script>
+<script src="js/cursor.js" defer></script>
+</body>
+</html>
