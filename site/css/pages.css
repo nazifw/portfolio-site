@@ -208,3 +208,22 @@ details p { margin: 12px 0 0; color: var(--fg-muted); }
 .cta-band h2 { font-size: var(--fs-h1); margin-inline: auto; max-width: 16ch; }
 .cta-band p { margin-inline: auto; }
 .cta-band .btn-row { justify-content: center; }
+
+/* ---------- Veri odakli sablon: bos durum, rozet, filtre, sosyal ---------- */
+.empty-state { grid-column: 1 / -1; margin: 0; padding: 28px 24px; text-align: center; color: var(--fg-muted); border: 1px dashed var(--border-strong); border-radius: var(--r-lg); background: var(--surface); }
+.badge-row { margin: 0 0 0.6rem; }
+.badge { display: inline-block; padding: 3px 12px; border-radius: var(--r-pill); font-size: var(--fs-label); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid var(--border-strong); color: var(--fg-muted); }
+.badge--done { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
+.badge--wip { color: var(--fg); border-color: var(--fire-mid); }
+.card__links { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 0.5rem 0 0; font-size: var(--fs-small); }
+.card__links a { position: relative; z-index: 2; }
+.chip--btn { cursor: pointer; font-family: inherit; line-height: 1.2; transition: background-color 200ms, color 200ms, border-color 200ms; }
+.chip--btn:hover { border-color: var(--accent); }
+.chip--btn[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+.filter-chips { margin-bottom: clamp(20px, 3vw, 36px); }
+.social-list { display: flex; flex-wrap: wrap; gap: 10px 12px; list-style: none; padding: 0; margin: 14px 0 0; }
+.social-list li { margin: 0; }
+.social-list a { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px 6px 10px; border: 1px solid var(--border-strong); border-radius: var(--r-pill); color: var(--fg); text-decoration: none; font-size: var(--fs-small); transition: border-color 200ms, background-color 200ms; }
+.social-list a:hover { border-color: var(--accent); background: var(--accent-soft); color: var(--fg); }
+.social-list svg { width: 18px; height: 18px; fill: currentColor; flex: none; }
+.site-footer .social-list { margin-top: 18px; }

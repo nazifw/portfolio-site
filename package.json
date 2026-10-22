@@ -1,0 +1,38 @@
+{
+  "name": "portfolio-template",
+  "version": "1.0.0",
+  "description": "Bilingual (TR/EN) portfolio site template with a scroll-driven campfire and a local-only admin panel. No build step.",
+  "keywords": [
+    "portfolio",
+    "template",
+    "static-site",
+    "vanilla-js",
+    "bilingual",
+    "admin-panel",
+    "campfire",
+    "no-build"
+  ],
+  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YOUR-USERNAME/portfolio-site.git"
+  },
+  "homepage": "https://github.com/YOUR-USERNAME/portfolio-site#readme",
+  "bugs": {
+    "url": "https://github.com/YOUR-USERNAME/portfolio-site/issues"
+  },
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node admin/server.js",
+    "validate": "node admin/scripts/validate.js",
+    "test": "node --test admin/test/validate.test.js admin/test/files.test.js admin/test/server.test.js admin/test/security.test.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "multer": "^2.5.0"
+  }
+}

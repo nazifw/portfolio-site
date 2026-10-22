@@ -51,23 +51,33 @@
     doc.addEventListener('i18nchange', function () { setMenu(nav.classList.contains('is-open')); });
   }
 
-  /* ---------- Scroll reveal (IntersectionObserver) ---------- */
-  // Stagger: [data-stagger] icindeki .reveal cocuklarina --i ver
-  $$('[data-stagger]').forEach(function (p) {
-    $$('.reveal', p).forEach(function (el, i) { el.style.setProperty('--i', i); });
-  });
-  var revealTargets = $$('.reveal, .reveal--clip, .stat, .bar, .ring');
+  /* ---------- Scroll reveal (IntersectionObserver) ----------
+     render.js dinamik oge ekledikten sonra window.SiteUI.scan(kok, anlik) cagirir: stagger + gozlemci yeniden taranir. */
+  var REVEAL_SEL = '.reveal, .reveal--clip, .stat, .bar, .ring';
   function show(el) { el.classList.add('is-visible'); }
-  if (!('IntersectionObserver' in window) || reduce) {
-    revealTargets.forEach(show);
-  } else {
-    var io = new IntersectionObserver(function (entries) {
+  var io = null;
+  if ('IntersectionObserver' in window && !reduce) {
+    io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (en.isIntersecting) { show(en.target); io.unobserve(en.target); }
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
-    revealTargets.forEach(function (el) { io.observe(el); });
   }
+  function scanReveal(rootEl, instant) {
+    rootEl = rootEl || doc.body;
+    // Stagger: [data-stagger] icindeki .reveal cocuklarina --i ver
+    var parents = $$('[data-stagger]', rootEl);
+    if (rootEl.matches && rootEl.matches('[data-stagger]')) parents.push(rootEl);
+    parents.forEach(function (p) { $$('.reveal', p).forEach(function (el, i) { el.style.setProperty('--i', i); }); });
+    var targets = $$(REVEAL_SEL, rootEl);
+    if (rootEl.matches && rootEl.matches(REVEAL_SEL)) targets.push(rootEl);
+    targets.forEach(function (el) {
+      if (el.classList.contains('is-visible')) return;
+      if (instant || !io) show(el); else io.observe(el);
+    });
+  }
+  window.SiteUI = { scan: scanReveal };
+  scanReveal(doc.body, false);
 
   /* ---------- Sayac animasyonu ---------- */
   function easeOutExpo(t) { return t === 1 ? 1 : 1 - Math.pow(2, -10 * t); }
@@ -186,48 +196,57 @@
     }
   }
 
-  /* ---------- Lightbox (<dialog>) ---------- */
-  var items = $$('a[data-lightbox]');
-  if (items.length && typeof HTMLDialogElement !== 'undefined') {
-    var dlg = doc.createElement('dialog');
-    dlg.className = 'lightbox';
+  /* ---------- Lightbox (<dialog>) ---------- 
+     Olay delegasyonu + tembel olusturma: render.js ile sonradan eklenen a[data-lightbox] ogeleri de calisir. */
+  var dlg = null, lbImg, lbCap, bClose, bPrev, bNext, lbIdx = 0, lbOpener = null, lbItems = [];
+  function lbLabels() {
     dlg.setAttribute('aria-label', tr('lb.label'));
-    dlg.innerHTML =
-      '<figure class="lightbox__figure"><img class="lightbox__img" alt="">' +
-      '<figcaption class="lightbox__cap"></figcaption></figure>' +
-      '<button type="button" class="lightbox__btn lightbox__close"></button>' +
-      '<button type="button" class="lightbox__btn lightbox__prev">&#8592;</button>' +
-      '<button type="button" class="lightbox__btn lightbox__next">&#8594;</button>';
+    bClose.setAttribute('aria-label', tr('lb.close')); bClose.textContent = '×';
+    bPrev.setAttribute('aria-label', tr('lb.prev')); bNext.setAttribute('aria-label', tr('lb.next'));
+  }
+  function lbRender() {
+    var a = lbItems[lbIdx]; if (!a) return;
+    var im = $('img', a), fc = a.parentNode.querySelector('figcaption');
+    lbImg.src = a.getAttribute('href');
+    lbImg.alt = im ? im.getAttribute('alt') : '';
+    lbCap.textContent = fc ? fc.textContent : '';
+  }
+  function lbGo(d) { lbItems = $$('a[data-lightbox]'); lbIdx = (lbIdx + d + lbItems.length) % lbItems.length; lbRender(); }
+  function lbEnsure() {
+    if (dlg) return true;
+    if (typeof HTMLDialogElement === 'undefined') return false;
+    dlg = doc.createElement('dialog');
+    dlg.className = 'lightbox';
+    var fig = doc.createElement('figure'); fig.className = 'lightbox__figure';
+    lbImg = doc.createElement('img'); lbImg.className = 'lightbox__img'; lbImg.alt = '';
+    lbCap = doc.createElement('figcaption'); lbCap.className = 'lightbox__cap';
+    fig.appendChild(lbImg); fig.appendChild(lbCap); dlg.appendChild(fig);
+    function mk(cls, txt) { var b = doc.createElement('button'); b.type = 'button'; b.className = 'lightbox__btn ' + cls; if (txt) b.textContent = txt; dlg.appendChild(b); return b; }
+    bClose = mk('lightbox__close'); bPrev = mk('lightbox__prev', '←'); bNext = mk('lightbox__next', '→');
     doc.body.appendChild(dlg);
-    var img = $('.lightbox__img', dlg), cap = $('.lightbox__cap', dlg);
-    var bClose = $('.lightbox__close', dlg), bPrev = $('.lightbox__prev', dlg), bNext = $('.lightbox__next', dlg);
-    var idx = 0, opener = null;
-    function labels() {
-      dlg.setAttribute('aria-label', tr('lb.label'));
-      bClose.setAttribute('aria-label', tr('lb.close')); bClose.innerHTML = '&times;';
-      bPrev.setAttribute('aria-label', tr('lb.prev')); bNext.setAttribute('aria-label', tr('lb.next'));
-    }
-    function render() {
-      var a = items[idx], im = $('img', a), fc = a.parentNode.querySelector('figcaption');
-      img.src = a.getAttribute('href');
-      img.alt = im ? im.getAttribute('alt') : '';
-      cap.textContent = fc ? fc.textContent : '';
-    }
-    function open(i, from) { idx = i; opener = from; labels(); render(); if (!dlg.open) dlg.showModal(); }
-    function go(d) { idx = (idx + d + items.length) % items.length; render(); }
-    items.forEach(function (a, i) {
-      a.addEventListener('click', function (e) { e.preventDefault(); open(i, a); });
-    });
     bClose.addEventListener('click', function () { dlg.close(); });
-    bPrev.addEventListener('click', function () { go(-1); });
-    bNext.addEventListener('click', function () { go(1); });
+    bPrev.addEventListener('click', function () { lbGo(-1); });
+    bNext.addEventListener('click', function () { lbGo(1); });
     dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
     dlg.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowLeft') go(-1); else if (e.key === 'ArrowRight') go(1);
+      if (e.key === 'ArrowLeft') lbGo(-1); else if (e.key === 'ArrowRight') lbGo(1);
     });
-    dlg.addEventListener('close', function () { if (opener) opener.focus(); });
-    doc.addEventListener('i18nchange', function () { labels(); if (dlg.open) render(); });
+    dlg.addEventListener('close', function () { if (lbOpener && doc.contains(lbOpener)) lbOpener.focus(); });
+    return true;
   }
+  doc.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[data-lightbox]');
+    if (!a || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    if (!lbEnsure()) return;
+    e.preventDefault();
+    lbItems = $$('a[data-lightbox]'); lbIdx = Math.max(0, lbItems.indexOf(a)); lbOpener = a;
+    lbLabels(); lbRender(); if (!dlg.open) dlg.showModal();
+  });
+  doc.addEventListener('i18nchange', function () {
+    if (!dlg) return;
+    lbLabels();
+    if (dlg.open) { lbItems = $$('a[data-lightbox]'); if (lbIdx >= lbItems.length) lbIdx = 0; lbRender(); }
+  });
 
   /* ---------- Iletisim formu ---------- */
   var form = $('#contact-form');
@@ -274,17 +293,17 @@
     if (again) again.addEventListener('click', function () { thanks.hidden = true; form.hidden = false; $('#cf-name').focus(); });
   }
 
-  /* ---------- E-posta kopyala ---------- */
-  $$('[data-copy]').forEach(function (b) {
-    b.addEventListener('click', function () {
-      var text = b.getAttribute('data-copy');
-      var done = function () {
-        var old = b.textContent; b.textContent = tr('copy.ok');
-        setTimeout(function () { b.textContent = tr('copy.btn'); }, 1600);
-      };
-      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, done);
-      else done();
-    });
+  /* ---------- E-posta kopyala (delegasyon) ---------- */
+  doc.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-copy]');
+    if (!b) return;
+    var text = b.getAttribute('data-copy');
+    var done = function () {
+      b.textContent = tr('copy.ok');
+      setTimeout(function () { b.textContent = tr('copy.btn'); }, 1600);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, done);
+    else done();
   });
 
   /* ---------- Yolculuk: "sayfa ustune sayfa" (stacking cards) ----------

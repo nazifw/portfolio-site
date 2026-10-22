@@ -4,13 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Blog | Name</title>
-<meta name="description" content="Git, CSS Grid ve Flexbox, web erişilebilirliği gibi yazılım konularında öğrenme notları.">
+<meta name="description" content="Yazılım ve web üzerine yazılar.">
+<meta property="og:description" content="Yazılım ve web üzerine yazılar.">
 <meta name="theme-color" content="#1a1714">
 <meta name="author" content="Name">
 <meta property="og:title" content="Blog | Name">
 <meta property="og:type" content="website">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
-<script>(function(){var d=document.documentElement;try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';d.setAttribute('data-theme',t);if(localStorage.getItem('lang')==='en')d.setAttribute('lang','en');}catch(e){}d.classList.add('js');})();</script>
+<script src="data/content.js"></script>
+<script>(function(){var d=document.documentElement,S=(window.SITE_CONTENT||{}).settings||{};try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark')t=(S.defaultTheme==='light'||S.defaultTheme==='dark')?S.defaultTheme:(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');d.setAttribute('data-theme',t);var l=localStorage.getItem('lang');if(l!=='en'&&l!=='tr')l=S.defaultLang;if(l==='en')d.setAttribute('lang','en');}catch(e){}var a=S.accentOverride;if(a&&/^(#[0-9a-f]{3,8}|(rgb|hsl)a?\([0-9 ,.%\/]+\))$/i.test(a)){d.style.setProperty('--accent',a);d.style.setProperty('--accent-hot',a);d.style.setProperty('--accent-soft','color-mix(in srgb,'+a+' 14%,transparent)');}d.classList.add('js');})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..600,0..100;1,9..144,400..600,0..100&amp;family=Inter:wght@400..700&amp;display=swap" rel="stylesheet">
@@ -23,7 +25,7 @@
 <a class="skip-link" href="#main" data-i18n="ui.skip">İçeriğe geç</a>
 <header class="site-header">
   <div class="container site-header__inner">
-    <a class="brand" href="index.html"><span class="brand__dot" aria-hidden="true"></span>Name</a>
+    <a class="brand" href="index.html"><span class="brand__dot" aria-hidden="true"></span><span data-c="site.name">Name</span></a>
     <nav class="nav" id="site-nav" aria-label="Ana menü" data-i18n-attr="aria-label:ui.mainNav">
       <ul class="nav__list"><li><a class="nav__link" href="index.html" data-i18n="nav.home">Anasayfa</a></li><li><a class="nav__link" href="hakkimda.html" data-i18n="nav.about">Hakkımda</a></li><li><a class="nav__link" href="projeler.html" data-i18n="nav.projects">Projeler</a></li><li><a class="nav__link" href="blog.html" aria-current="page" data-i18n="nav.blog">Blog</a></li><li><a class="nav__link" href="galeri.html" data-i18n="nav.gallery">Galeri</a></li><li><a class="nav__link" href="iletisim.html" data-i18n="nav.contact">İletişim</a></li></ul>
     </nav>
@@ -42,52 +44,28 @@
   <div class="container">
     <span class="eyebrow" data-i18n="blog.eyebrow">Yazılar</span>
     <h1 id="h1" data-i18n="blog.h1" data-i18n-html>Öğrendikçe <em>yazıyorum</em>.</h1>
-    <p class="lead" data-i18n="blog.lead">Yazılım ve web üzerine notlar. Her yazıda, ekran görüntüsü yerine geçen bir görsel ve açıklaması var.</p>
+    <p class="lead" data-i18n="blog.lead">Yazılım ve web üzerine notlar.</p>
   </div>
 </section>
 
 <section class="section section--tight" aria-labelledby="blog-posts">
   <div class="container">
     <div class="section__head"><h2 id="blog-posts" data-i18n="blog.postsH2">Son yazılar</h2></div>
-    <div class="bloglist" data-stagger><article class="card blogcard reveal">
-  <figure class="card__media"><img src="img/blog-1.svg" alt="Git ile Başlangıç: Versiyon Kontrolü Neden Hayat Kurtarır? yazısı için ekran görüntüsü yerine geçen görsel" data-i18n-attr="alt:post1.alt" width="1200" height="675" loading="lazy"></figure>
-  <div class="card__body">
-    <p class="when"><time datetime="2026-10-12" data-i18n="post1.date">12 Ekim 2026</time> · <span data-i18n="post1.read">5 dk okuma</span></p>
-    <h3><a class="stretched" href="blog-1.html" data-i18n="post1.t">Git ile Başlangıç: Versiyon Kontrolü Neden Hayat Kurtarır?</a></h3>
-    <p data-i18n="post1.ex">Git'in temel fikrini, en sık kullanılan komutları ve dal mantığını örneklerle anlattım.</p>
-    <p class="card__meta"><span data-i18n="blog.read">Yazıyı oku</span> <span aria-hidden="true">&rarr;</span></p>
-  </div>
-</article><article class="card blogcard reveal">
-  <figure class="card__media"><img src="img/blog-2.svg" alt="CSS Grid ve Flexbox: Hangisini Ne Zaman Kullanmalı? yazısı için ekran görüntüsü yerine geçen görsel" data-i18n-attr="alt:post2.alt" width="1200" height="675" loading="lazy"></figure>
-  <div class="card__body">
-    <p class="when"><time datetime="2026-09-28" data-i18n="post2.date">28 Eylül 2026</time> · <span data-i18n="post2.read">6 dk okuma</span></p>
-    <h3><a class="stretched" href="blog-2.html" data-i18n="post2.t">CSS Grid ve Flexbox: Hangisini Ne Zaman Kullanmalı?</a></h3>
-    <p data-i18n="post2.ex">İki düzen sisteminin farkı, ortak kullanımı ve responsive tasarımda işe yarayan küçük bir kalıp.</p>
-    <p class="card__meta"><span data-i18n="blog.read">Yazıyı oku</span> <span aria-hidden="true">&rarr;</span></p>
-  </div>
-</article><article class="card blogcard reveal">
-  <figure class="card__media"><img src="img/blog-3.svg" alt="Web Erişilebilirliği: Herkes İçin Tasarım yazısı için ekran görüntüsü yerine geçen görsel" data-i18n-attr="alt:post3.alt" width="1200" height="675" loading="lazy"></figure>
-  <div class="card__body">
-    <p class="when"><time datetime="2026-09-09" data-i18n="post3.date">9 Eylül 2026</time> · <span data-i18n="post3.read">5 dk okuma</span></p>
-    <h3><a class="stretched" href="blog-3.html" data-i18n="post3.t">Web Erişilebilirliği: Herkes İçin Tasarım</a></h3>
-    <p data-i18n="post3.ex">Anlamsal HTML, klavye erişimi ve renk kontrastıyla erişilebilir siteler için pratik bir başlangıç listesi.</p>
-    <p class="card__meta"><span data-i18n="blog.read">Yazıyı oku</span> <span aria-hidden="true">&rarr;</span></p>
-  </div>
-</article></div>
+    <div class="bloglist" data-stagger data-render="posts"></div>
   </div>
 </section>
 
-<section class="section" aria-labelledby="blog-topics">
+<section class="section" aria-labelledby="blog-topics" data-optional>
   <div class="container reveal">
     <h2 id="blog-topics" data-i18n="blog.topicsH2">Konular</h2>
-    <ul class="chips"><li><span class="chip" data-i18n="topic.0">Git</span></li><li><span class="chip" data-i18n="topic.1">CSS</span></li><li><span class="chip" data-i18n="topic.2">Erişilebilirlik</span></li><li><span class="chip" data-i18n="topic.3">JavaScript</span></li><li><span class="chip" data-i18n="topic.4">Yapay zekâ araçları</span></li><li><span class="chip" data-i18n="topic.5">Açık kaynak</span></li></ul>
+    <ul class="chips" data-render="topics"></ul>
   </div>
 </section>
 
-<section class="section" aria-labelledby="blog-why">
+<section class="section" aria-labelledby="blog-why" data-if="blogNote.text">
   <div class="container reveal">
-    <h2 id="blog-why" data-i18n="blog.whyH2">Neden blog yazıyorum?</h2>
-    <p data-i18n="blog.whyP">Bir konuyu başkasına anlatabiliyorsam gerçekten öğrenmişim demektir. Yazılar hem benim için not defteri hem de benzer şeyleri öğrenenler için küçük bir rehber.</p>
+    <h2 id="blog-why" data-c="blogNote.title"></h2>
+    <p data-c="blogNote.text"></p>
   </div>
 </section>
 </main>
@@ -104,20 +82,20 @@
       </nav>
       <div>
         <p class="footer__label" data-i18n="foot.contact">İletişim</p>
-        <ul class="footer__list">
+        <ul class="footer__list" data-render="footer-contact">
           <li><a href="mailto:name@example.com">name@example.com</a></li>
-          <li><a href="tel:+905550000000">+90 555 000 00 00</a></li>
-          <li>İstanbul, Türkiye [PLACEHOLDER]</li>
         </ul>
+        <ul class="social-list" data-render="socials" data-optional></ul>
       </div>
     </div>
     <div class="footer__bottom">
-      <p>&copy; <span data-year>2026</span> Name. <span data-i18n="foot.rights">Üniversite vize ödevi için hazırlanmıştır.</span></p>
+      <p>&copy; <span data-year>2026</span> <span data-c="site.name">Name</span>. <span data-i18n="foot.rights">Tüm hakları saklıdır.</span></p>
       <button type="button" class="btn btn--ghost" id="to-top" aria-label="Sayfanın başına dön" data-i18n-attr="aria-label:ui.top"><span data-i18n="foot.top">Yukarı</span> <span class="arrow" aria-hidden="true">&uarr;</span></button>
     </div>
   </div>
 </footer>
 <script src="js/i18n.js" defer></script>
+<script src="js/render.js" defer></script>
 <script src="js/theme.js" defer></script>
 <script src="js/main.js" defer></script>
 <script src="js/fire.js" defer></script>

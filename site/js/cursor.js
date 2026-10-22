@@ -16,6 +16,8 @@
 
   function start() {
     if (inst) return true;
+    var cfg = (window.SITE_CONTENT || {}).settings;
+    if (cfg && cfg.cursor === false) return false;   // content.js -> settings.cursor: false ise imlec baslamaz
     if (!doc.body || !eligible() || lsGet('cursor-off') === '1') return false;
     try {
       var dot = doc.createElement('div'), halo = doc.createElement('div'), cvs = doc.createElement('canvas');

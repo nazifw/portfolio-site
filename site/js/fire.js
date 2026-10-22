@@ -596,6 +596,8 @@
     return (n.hardwareConcurrency && n.hardwareConcurrency <= 4) || (n.deviceMemory && n.deviceMemory <= 4);
   }
   function init() {
+    var cfg = (window.SITE_CONTENT || {}).settings;
+    if (cfg && cfg.fire === false) return;   // content.js -> settings.fire: false ise ates baslamaz
     if (!doc.body) return;
     readMode();
     build();

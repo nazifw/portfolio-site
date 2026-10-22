@@ -4,13 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Galeri | Name</title>
-<meta name="description" content="Name&#x27;in fotoğraf galerisi: doğa, şehir ve çalışma ortamından kısa açıklamalı kareler.">
+<meta name="description" content="Kısa açıklamalı fotoğraf galerisi.">
+<meta property="og:description" content="Kısa açıklamalı fotoğraf galerisi.">
 <meta name="theme-color" content="#1a1714">
 <meta name="author" content="Name">
 <meta property="og:title" content="Galeri | Name">
 <meta property="og:type" content="website">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
-<script>(function(){var d=document.documentElement;try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';d.setAttribute('data-theme',t);if(localStorage.getItem('lang')==='en')d.setAttribute('lang','en');}catch(e){}d.classList.add('js');})();</script>
+<script src="data/content.js"></script>
+<script>(function(){var d=document.documentElement,S=(window.SITE_CONTENT||{}).settings||{};try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark')t=(S.defaultTheme==='light'||S.defaultTheme==='dark')?S.defaultTheme:(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');d.setAttribute('data-theme',t);var l=localStorage.getItem('lang');if(l!=='en'&&l!=='tr')l=S.defaultLang;if(l==='en')d.setAttribute('lang','en');}catch(e){}var a=S.accentOverride;if(a&&/^(#[0-9a-f]{3,8}|(rgb|hsl)a?\([0-9 ,.%\/]+\))$/i.test(a)){d.style.setProperty('--accent',a);d.style.setProperty('--accent-hot',a);d.style.setProperty('--accent-soft','color-mix(in srgb,'+a+' 14%,transparent)');}d.classList.add('js');})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..600,0..100;1,9..144,400..600,0..100&amp;family=Inter:wght@400..700&amp;display=swap" rel="stylesheet">
@@ -23,7 +25,7 @@
 <a class="skip-link" href="#main" data-i18n="ui.skip">İçeriğe geç</a>
 <header class="site-header">
   <div class="container site-header__inner">
-    <a class="brand" href="index.html"><span class="brand__dot" aria-hidden="true"></span>Name</a>
+    <a class="brand" href="index.html"><span class="brand__dot" aria-hidden="true"></span><span data-c="site.name">Name</span></a>
     <nav class="nav" id="site-nav" aria-label="Ana menü" data-i18n-attr="aria-label:ui.mainNav">
       <ul class="nav__list"><li><a class="nav__link" href="index.html" data-i18n="nav.home">Anasayfa</a></li><li><a class="nav__link" href="hakkimda.html" data-i18n="nav.about">Hakkımda</a></li><li><a class="nav__link" href="projeler.html" data-i18n="nav.projects">Projeler</a></li><li><a class="nav__link" href="blog.html" data-i18n="nav.blog">Blog</a></li><li><a class="nav__link" href="galeri.html" aria-current="page" data-i18n="nav.gallery">Galeri</a></li><li><a class="nav__link" href="iletisim.html" data-i18n="nav.contact">İletişim</a></li></ul>
     </nav>
@@ -42,20 +44,11 @@
   <div class="container">
     <span class="eyebrow" data-i18n="gallery.eyebrow">Fotoğraflar</span>
     <h1 id="h1" data-i18n="gallery.h1" data-i18n-html>Işığın <em>peşinde</em>.</h1>
-    <p class="lead" data-i18n="gallery.lead">Kareler şimdilik yer tutucudur; her birinin altında kısa bir açıklama var. Büyütmek için görsele tıkla.</p>
+    <p class="lead" data-i18n="gallery.lead">Kısa açıklamalı kareler. Büyütmek için görsele tıkla.</p>
   </div>
 </section>
 <section class="section section--tight" aria-label="Fotoğraf galerisi" data-i18n-attr="aria-label:gallery.secLabel">
-  <div class="container"><div class="gallery-group"><div class="section__head reveal"><h2 data-i18n="gallery.g0">Doğa ve ışık</h2></div><div class="gallery" data-stagger><figure class="shot reveal"><a href="img/gal-1.svg" data-lightbox><img src="img/gal-1.svg" alt="Turuncu tonlarda soyut bir gün batımı görseli." data-i18n-attr="alt:g1.alt" width="800" height="600" loading="lazy"></a>
-  <figcaption data-i18n="g1.cap">Ateşin ilk ışığı: akşamüstü renkleri.</figcaption></figure><figure class="shot reveal"><a href="img/gal-2.svg" data-lightbox><img src="img/gal-2.svg" alt="Katmanlı, dalgalı tepeleri andıran soyut manzara." data-i18n-attr="alt:g2.alt" width="800" height="600" loading="lazy"></a>
-  <figcaption data-i18n="g2.cap">Katman katman tepeler; derinlik için üç ton yeterli.</figcaption></figure><figure class="shot reveal"><a href="img/gal-3.svg" data-lightbox><img src="img/gal-3.svg" alt="Koyu mavi tonlarda, parlak bir daire içeren gece göğü." data-i18n-attr="alt:g3.alt" width="800" height="600" loading="lazy"></a>
-  <figcaption data-i18n="g3.cap">Kamp gecesinden bir an (yer tutucu).</figcaption></figure></div></div><div class="gallery-group"><div class="section__head reveal"><h2 data-i18n="gallery.g1">Şehir ve yapılar</h2></div><div class="gallery" data-stagger><figure class="shot reveal"><a href="img/gal-4.svg" data-lightbox><img src="img/gal-4.svg" alt="Mor ve pembe tonlarda soyut şehir silueti." data-i18n-attr="alt:g4.alt" width="800" height="600" loading="lazy"></a>
-  <figcaption data-i18n="g4.cap">Şehir akşamı; ışıklar yavaş yavaş yanıyor.</figcaption></figure><figure class="shot reveal"><a href="img/gal-5.svg" data-lightbox><img src="img/gal-5.svg" alt="Petrol mavisi tonlarında soyut bir bina cephesi." data-i18n-attr="alt:g5.alt" width="800" height="600" loading="lazy"></a>
-  <figcaption data-i18n="g5.cap">Cam ve çelik üzerine bir geometri denemesi.</figcaption></figure><figure class="shot reveal"><a href="img/gal-6.svg" data-lightbox><img src="img/gal-6.svg" alt="Yeşil tonlarda yumuşak bir sis manzarası." data-i18n-attr="alt:g6.alt" width="800" height="600" loading="lazy"></a>
-  <figcaption data-i18n="g6.cap">Sabah sisi, sakinlik ve boşluk.</figcaption></figure></div></div><div class="gallery-group"><div class="section__head reveal"><h2 data-i18n="gallery.g2">Çalışma ortamım</h2></div><div class="gallery" data-stagger><figure class="shot reveal"><a href="img/gal-7.svg" data-lightbox><img src="img/gal-7.svg" alt="Sıcak tonlarda soyut bir çalışma masası kompozisyonu." data-i18n-attr="alt:g7.alt" width="800" height="600" loading="lazy"></a>
-  <figcaption data-i18n="g7.cap">Kod yazdığım köşe; yanında her zaman bir fincan kahve.</figcaption></figure><figure class="shot reveal"><a href="img/gal-8.svg" data-lightbox><img src="img/gal-8.svg" alt="Kum rengi tonlarda soyut kâğıt dokusu." data-i18n-attr="alt:g8.alt" width="800" height="600" loading="lazy"></a>
-  <figcaption data-i18n="g8.cap">Fikirlerin ilk hali kâğıtta başlar.</figcaption></figure><figure class="shot reveal"><a href="img/gal-9.svg" data-lightbox><img src="img/gal-9.svg" alt="Mavi gökyüzü tonlarında soyut ekran ışığı." data-i18n-attr="alt:g9.alt" width="800" height="600" loading="lazy"></a>
-  <figcaption data-i18n="g9.cap">Akşam oturumu: ekran ışığı ve sessizlik.</figcaption></figure></div></div></div>
+  <div class="container" data-render="gallery-groups"></div>
 </section>
 </main>
 <footer class="site-footer">
@@ -71,20 +64,20 @@
       </nav>
       <div>
         <p class="footer__label" data-i18n="foot.contact">İletişim</p>
-        <ul class="footer__list">
+        <ul class="footer__list" data-render="footer-contact">
           <li><a href="mailto:name@example.com">name@example.com</a></li>
-          <li><a href="tel:+905550000000">+90 555 000 00 00</a></li>
-          <li>İstanbul, Türkiye [PLACEHOLDER]</li>
         </ul>
+        <ul class="social-list" data-render="socials" data-optional></ul>
       </div>
     </div>
     <div class="footer__bottom">
-      <p>&copy; <span data-year>2026</span> Name. <span data-i18n="foot.rights">Üniversite vize ödevi için hazırlanmıştır.</span></p>
+      <p>&copy; <span data-year>2026</span> <span data-c="site.name">Name</span>. <span data-i18n="foot.rights">Tüm hakları saklıdır.</span></p>
       <button type="button" class="btn btn--ghost" id="to-top" aria-label="Sayfanın başına dön" data-i18n-attr="aria-label:ui.top"><span data-i18n="foot.top">Yukarı</span> <span class="arrow" aria-hidden="true">&uarr;</span></button>
     </div>
   </div>
 </footer>
 <script src="js/i18n.js" defer></script>
+<script src="js/render.js" defer></script>
 <script src="js/theme.js" defer></script>
 <script src="js/main.js" defer></script>
 <script src="js/fire.js" defer></script>

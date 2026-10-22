@@ -1,3 +1,5 @@
+> **Bu belge eski tasarımdır; güncel şema [docs/04-content-schema.md](04-content-schema.md).**
+
 # 03 - Backend ve İçerik Mimarisi
 
 Ortam: Node v24.20.0, npm 12.0.2 (kontrol edildi). Windows. Proje: iki dilli (tr/en) kişisel portfolyo, üniversite vize projesi.

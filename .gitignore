@@ -3,3 +3,13 @@ web/
 node_modules/
 .env
 *.log
+
+# admin panel (yerel durum)
+admin/.auth.json
+admin/backups/
+site/img/uploads/*
+!site/img/uploads/.gitkeep
+
+# OS / editor
+.DS_Store
+Thumbs.db
