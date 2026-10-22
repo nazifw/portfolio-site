@@ -28,6 +28,8 @@ function resolvePaths(opts = {}) {
 /** Join rel onto root; return null if the result escapes root (path traversal guard). */
 function safeJoin(root, rel) {
   if (typeof rel !== 'string' || rel.includes('\0')) return null;
+  // Reject Windows-style separators and drive paths on every platform so behaviour is identical everywhere.
+  if (rel.includes('\\') || /^[a-zA-Z]:/.test(rel)) return null;
   const base = path.resolve(root);
   const full = path.resolve(base, rel);
   if (full === base || full.startsWith(base + path.sep)) return full;

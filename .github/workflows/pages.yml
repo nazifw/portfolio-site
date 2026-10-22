@@ -2,10 +2,13 @@ name: Deploy site to GitHub Pages
 
 # Publishes ONLY the site/ folder. The admin/ folder is a local tool and is never deployed.
 # One-time setup: Settings -> Pages -> Source: "GitHub Actions".
+# It only runs when you start it (Actions tab -> Run workflow), so a fresh clone
+# does not show a red failure before Pages is enabled. To deploy on every push to main,
+# add the following under `on:`
+#   push:
+#     branches: [main]
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:

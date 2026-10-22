@@ -250,7 +250,7 @@ Before deploying, check the file once: `npm run validate`.
 
 ### GitHub Pages (included workflow)
 
-[`.github/workflows/pages.yml`](.github/workflows/pages.yml) publishes `site/` on every push to `main` and on manual runs.
+[`.github/workflows/pages.yml`](.github/workflows/pages.yml) publishes `site/` when you run it manually (Actions tab → *Deploy site to GitHub Pages* → Run workflow). Enable Pages first (Settings → Pages → Source: GitHub Actions). To deploy on every push instead, uncomment the `push` trigger described at the top of the file.
 
 1. Push your repository to GitHub.
 2. In **Settings → Pages**, set **Source** to **GitHub Actions**.

@@ -250,7 +250,7 @@ Yayınlamadan önce dosyayı bir kez denetleyin: `npm run validate`.
 
 ### GitHub Pages (dahil iş akışı)
 
-[`.github/workflows/pages.yml`](.github/workflows/pages.yml), `main` dalına her push'ta ve elle çalıştırmada `site/` klasörünü yayınlar.
+[`.github/workflows/pages.yml`](.github/workflows/pages.yml), elle çalıştırdığında `site/` klasörünü yayınlar (Actions sekmesi → *Deploy site to GitHub Pages* → Run workflow). Önce Pages'i aç (Settings → Pages → Source: GitHub Actions). Her push'ta yayınlamak istersen dosyanın başında anlatılan `push` tetikleyicisini aç.
 
 1. Deponuzu GitHub'a push'layın.
 2. **Settings → Pages** içinde **Source** olarak **GitHub Actions** seçin.
