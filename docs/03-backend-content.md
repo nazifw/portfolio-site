@@ -149,7 +149,7 @@ web/src/content/
 `profile.json`
 ```json
 {
-  "name": "Ad Soyad Hanay",
+  "name": "Name Hanay",
   "title": { "tr": "Yazılım Geliştirici", "en": "Software Developer" },
   "tagline": {
     "tr": "Web ve arka uç projeleri geliştiriyorum.",
@@ -160,15 +160,15 @@ web/src/content/
     "en": "I am a computer engineering student who enjoys writing clean, maintainable code."
   },
   "location": { "tr": "Türkiye", "en": "Turkey" },
-  "email": "ad.soyad@example.com",
+  "email": "name@example.com",
   "avatarUrl": "/images/avatar.jpg",
   "resumeUrl": { "tr": "/cv/cv-tr.pdf", "en": "/cv/cv-en.pdf" },
   "githubUsername": "GITHUB_KULLANICI_ADI",
   "seo": {
-    "title": { "tr": "Ad Soyad Hanay | Portfolyo", "en": "Ad Soyad Hanay | Portfolio" },
+    "title": { "tr": "Name Hanay | Portfolyo", "en": "Name Hanay | Portfolio" },
     "description": {
-      "tr": "Ad Soyad Hanay'ın kişisel portfolyo sitesi.",
-      "en": "Personal portfolio website of Ad Soyad Hanay."
+      "tr": "Name Hanay'ın kişisel portfolyo sitesi.",
+      "en": "Personal portfolio website of Name Hanay."
     }
   }
 }
@@ -193,7 +193,7 @@ web/src/content/
     "id": "email", "order": 3, "visible": true,
     "platform": "email",
     "label": { "tr": "E-posta gönder", "en": "Send email" },
-    "url": "mailto:ad.soyad@example.com"
+    "url": "mailto:name@example.com"
   }
 ]
 ```

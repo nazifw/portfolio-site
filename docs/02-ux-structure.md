@@ -1,4 +1,4 @@
-# 02 – UX Yapısı: Ad Soyad Portfolyo
+# 02 – UX Yapısı: Name Portfolyo
 
 Durum: Taslak v1 · Kapsam: kod yok, yalnızca UX kararları. Tüm `[PLACEHOLDER]` değerleri kullanıcı tarafından doldurulacaktır.
 
@@ -76,10 +76,10 @@ Ortak hedefler: ilk ekranda "kimsin" cevabı; projeye 2 tıkta ulaşım; iletiş
 ### 3.1 Masaüstü – Home (≥1024px)
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│ ◉ Ad Soyad      Home Projects About Contact     [TR|EN] [☀/☾]   │ sticky header
+│ ◉ Name      Home Projects About Contact     [TR|EN] [☀/☾]   │ sticky header
 ├──────────────────────────────────────────────────────────────┤
 │                                                              │
-│   Merhaba, ben Ad Soyad.                       ┌────────────┐   │
+│   Merhaba, ben Name.                       ┌────────────┐   │
 │   [Rol] geliştirici.                        │  foto /    │   │
 │   Slogan tek cümle.                         │  görsel    │   │
 │   [Projeleri Gör]  [İletişim]               └────────────┘   │
@@ -127,9 +127,9 @@ Ortak hedefler: ilk ekranda "kimsin" cevabı; projeye 2 tıkta ulaşım; iletiş
 ### 3.4 Mobil – Home (<640px)
 ```
 ┌─────────────────────┐
-│ ◉ Ad Soyad      [☰]    │ sticky; ☰ menü açar
+│ ◉ Name      [☰]    │ sticky; ☰ menü açar
 ├─────────────────────┤
-│ Merhaba, ben Ad Soyad. │
+│ Merhaba, ben Name. │
 │ [Rol] geliştirici.  │
 │ [Projeleri Gör]     │
 │ [İletişim]          │
@@ -148,7 +148,7 @@ Ortak hedefler: ilk ekranda "kimsin" cevabı; projeye 2 tıkta ulaşım; iletiş
 ### 3.5 Mobil menü (açık)
 ```
 ┌─────────────────────┐
-│ ◉ Ad Soyad       [✕]   │
+│ ◉ Name       [✕]   │
 ├─────────────────────┤
 │  Home               │
 │  Projects           │  tam ekran overlay,
@@ -165,7 +165,7 @@ Ortak hedefler: ilk ekranda "kimsin" cevabı; projeye 2 tıkta ulaşım; iletiş
 ## 4. Navigasyon
 
 - **Sticky header**, yükseklik 64px (mobil 56px). Scroll aşağı: arka plan blur + ince alt çizgi belirir; hızlı aşağı kaydırmada küçülür (opsiyonel), yukarı kaydırmada geri gelir.
-- **Sol:** logo/ad ("Ad Soyad") → `/`. **Orta/sağ:** 4 ana link. **En sağ:** dil toggle, tema toggle (bu sıra, sabit konum; mobilde de aynı sıra).
+- **Sol:** logo/ad ("Name") → `/`. **Orta/sağ:** 4 ana link. **En sağ:** dil toggle, tema toggle (bu sıra, sabit konum; mobilde de aynı sıra).
 - Aktif sayfa: alt çizgi + `aria-current="page"`. `/projects/:slug` iken "Projects" aktif.
 - Dil toggle: segmented kontrol `TR | EN` (kısa kod, `lang` etiketli). Tema toggle: ikon buton (güneş/ay), `aria-label` mevcut eyleme göre ("Koyu temaya geç").
 - **Mobil (<768px):** hamburger → tam ekran overlay menü; açılınca focus trap, `Esc` ile kapanır, arka plan scroll kilitlenir, rota değişince otomatik kapanır. Toggle'lar menüde de; header'da yalnızca logo + hamburger (+ opsiyonel tema ikonu).
@@ -353,12 +353,12 @@ Tüm durumlar iki dilde, düzen kaymasını (CLS) önlemek için sabit boyutlu y
 
 ## 12. Placeholder İçerik Metinleri (TR / EN)
 
-Kullanıcı adı: **Ad Soyad**. Diğer her şey `[PLACEHOLDER]`.
+Kullanıcı adı: **Name**. Diğer her şey `[PLACEHOLDER]`.
 
 ### 12.1 Home – Hero
 | Anahtar | TR | EN |
 |---|---|---|
-| home.hero.greeting | Merhaba, ben Ad Soyad. | Hi, I'm Ad Soyad. |
+| home.hero.greeting | Merhaba, ben Name. | Hi, I'm Name. |
 | home.hero.role | [PLACEHOLDER: rol, örn. Yazılım geliştirici] | [PLACEHOLDER: role, e.g. Software developer] |
 | home.hero.tagline | [PLACEHOLDER: tek cümlelik slogan] – ateşin başında fikirleri koda döküyorum. | [PLACEHOLDER: one-line tagline] – turning ideas into code by the fire. |
 | home.hero.cta.projects | Projeleri Gör | View Projects |
@@ -404,7 +404,7 @@ Kullanıcı adı: **Ad Soyad**. Diğer her şey `[PLACEHOLDER]`.
 | Anahtar | TR | EN |
 |---|---|---|
 | about.title | Hakkımda | About Me |
-| about.bio | Ben Ad Soyad. [PLACEHOLDER: biyografi, 2 paragraf: nereden geldiğin, ne öğrendiğin, ne yapmak istediğin]. | I'm Ad Soyad. [PLACEHOLDER: 2-paragraph bio: where you're from, what you've learned, what you want to do]. |
+| about.bio | Ben Name. [PLACEHOLDER: biyografi, 2 paragraf: nereden geldiğin, ne öğrendiğin, ne yapmak istediğin]. | I'm Name. [PLACEHOLDER: 2-paragraph bio: where you're from, what you've learned, what you want to do]. |
 | about.timeline.title | Yolculuk | Journey |
 | about.timeline.item | [PLACEHOLDER: yıl] – [PLACEHOLDER: okul / iş / olay] | [PLACEHOLDER: year] – [PLACEHOLDER: school / job / event] |
 | about.skills.title | Yetenekler | Skills |
@@ -449,7 +449,7 @@ Sosyal linkler (veri): GitHub `[PLACEHOLDER: github.com/kullanici]`, LinkedIn `[
 | notFound.title | Yol kayboldu. | You've wandered off. |
 | notFound.text | Aradığın sayfa yok. Ateşin yanına dönelim. | That page doesn't exist. Let's head back to the fire. |
 | notFound.cta | Ana sayfaya dön | Back to home |
-| footer.copy | © {year} Ad Soyad. Tüm hakları saklıdır. | © {year} Ad Soyad. All rights reserved. |
+| footer.copy | © {year} Name. Tüm hakları saklıdır. | © {year} Name. All rights reserved. |
 | footer.toTop | Yukarı çık | Back to top |
 | settings.reduceMotion | Animasyonları azalt | Reduce motion |
 | settings.customCursor | Özel imleç | Custom cursor |
